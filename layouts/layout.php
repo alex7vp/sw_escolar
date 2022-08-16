@@ -2,8 +2,8 @@
 <html lang="es">
 
 <head>
-    <link rel="shortcut icon" href="img/monitor.png">
-    <title> Plantilla con Bootstrap</title>
+    <link rel="shortcut icon" href="img/logo2.svg">
+    <title> SAC Sistema de Asistencias y Evaluaciones</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

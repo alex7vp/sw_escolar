@@ -48,7 +48,7 @@ require_once('layouts/layout.php');
                                 <td><?php echo $provincia ->proid?></td>
                                 <td><?php echo $provincia ->pronombre ?></td>
                                 <td>
-                                    <a href="" class="btn btn-grad btn-sm">Editar</a>
+                                    <a href="editar_provincia.php?proid=<?php echo $provincia ->proid ?>" class="btn btn-grad btn-sm">Editar</a>
                                 </td>
                                 <td>
                                     <a href="" class="btn btn-grad2 btn-sm">Borrar</a>

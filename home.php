@@ -3,9 +3,13 @@
 	require_once('layouts/layout.php');	
 
  ?>
+ <br>
+ <center>
  <div class="container">
-    Hola Mundo
+    
+ <img src="img/sac.png" style="width: 395px; height: 559px;" alt="">
  </div>
+ </center>
 
 </body>
 </html>
