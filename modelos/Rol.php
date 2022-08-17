@@ -38,15 +38,15 @@ class Rol
         //$resultado = $mysqli->query("SELECT id, nombre FROM provincias");
         //return $resultado->fetch_all(MYSQLI_ASSOC);
     }
-    public static function obtenerUno($id)
+    public static function obtenerUno($rolid)
     {
-        global $mysqli;
-        $sentencia = $mysqli->prepare("SELECT id, nombre FROM provincias WHERE id = ?");
-        $sentencia->bind_param("i", $id);
-        $sentencia->execute();
-        $resultado = $sentencia->get_result();
-        return $resultado->fetch_object();
+        global $conn;        
+        $sentencia = 'SELECT rolid, rolnombre FROM roles WHERE rolid=:rolid ';
+        $registros = $conn->prepare( $sentencia );     
+        $registros->execute( array(":rolid" => $rolid) ); 
+        return $registros = $registros->fetch( PDO::FETCH_OBJ );        
     }
+    
     public function actualizar()
     {
         global $mysqli;
