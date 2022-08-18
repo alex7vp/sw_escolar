@@ -1,6 +1,7 @@
 <?php
-include_once "conf.php";
+include "conf.php";
 include "modelos/Provincia.php";
+//carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
 $proid = $_GET["proid"];
 $provincia = Provincia::obtenerUno($proid);

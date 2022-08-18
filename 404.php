@@ -9,7 +9,7 @@
  <center>
  <div class="container">
     
- <img src="img/sac.png" style="width: 395px; height: 559px;" alt="">
+ <h1 >Página Restringida</h1>
  </div>
  </center>
 

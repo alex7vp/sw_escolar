@@ -1,8 +1,11 @@
+<?php 
+$raiz= '/sw_escolar';
+?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <link rel="shortcut icon" href="img/logo2.svg">
+    <link rel="shortcut icon" href="<?php echo $raiz."/img/logo2.svg" ?>  ">
     <title> SAC Sistema de Asistencias y Evaluaciones</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

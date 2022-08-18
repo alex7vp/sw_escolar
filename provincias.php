@@ -2,11 +2,11 @@
 session_start();
 include "conf.php";
 include "modelos/Provincia.php";
-$provincias = Provincia::obtener();
-
-//carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
-
+$provincias = Provincia::obtener();
+if (!isset ($_SESSION['rol'])) {
+    header("Location: index.php");
+}
 ?>
 <div class="card container mt-2">
     <div class="container">
@@ -48,7 +48,7 @@ require_once('layouts/layout.php');
                                 <td><?php echo $provincia ->proid?></td>
                                 <td><?php echo $provincia ->pronombre ?></td>
                                 <td>
-                                    <a href="editar_provincia.php?proid=<?php echo $provincia ->proid ?>" class="btn btn-grad btn-sm">Editar</a>
+                                    <a href="editar_provincia.php" class="btn btn-grad btn-sm">Editar</a>
                                 </td>
                                 <td>
                                     <a href="eliminar_provincia.php?proid=<?php echo $provincia ->proid ?>" class="btn btn-grad2 btn-sm">Eliminar</a>
@@ -64,6 +64,7 @@ require_once('layouts/layout.php');
             </div>
         </div><br>
     </div>
+    <a href="" class=""></a>
 </div>
 
 </body>
