@@ -22,7 +22,7 @@ if (!isset ($_SESSION['rol'])) {
                                 <span class="input-group-text" id="basic-addon1">Provincia</span>
                                 <input type="text" class="form-control" name="proNombre" id="proNombre"
                                     placeholder="Ingresa el nombre de la provincia" aria-label="Username"
-                                    aria-describedby="basic-addon1">
+                                    aria-describedby="basic-addon1" required >
                             </div>
                         </div>
                         <div class="form-group">
@@ -37,7 +37,7 @@ if (!isset ($_SESSION['rol'])) {
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nombre</th>
+                                <th>Provincias</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
@@ -48,7 +48,7 @@ if (!isset ($_SESSION['rol'])) {
                                 <td><?php echo $provincia ->proid?></td>
                                 <td><?php echo $provincia ->pronombre ?></td>
                                 <td>
-                                    <a href="editar_provincia.php" class="btn btn-grad btn-sm">Editar</a>
+                                    <a href="editar_provincia.php?proid=<?php echo $provincia ->proid ?>" class="btn btn-grad btn-sm">Editar</a>
                                 </td>
                                 <td>
                                     <a href="eliminar_provincia.php?proid=<?php echo $provincia ->proid ?>" class="btn btn-grad2 btn-sm">Eliminar</a>

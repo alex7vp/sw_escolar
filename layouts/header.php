@@ -18,7 +18,7 @@
           </a>
           <ul class="dropdown-menu text-light">
             <li><a class="dropdown-item" href="provincias.php"> Provincias</a></li>            
-            <li><a class="dropdown-item" href="">Ciudades</a></li>
+            <li><a class="dropdown-item" href="ciudades.php">Ciudades</a></li>
             <li><hr class="dropdown-divider"></li>            
             <li><a class="dropdown-item" href="roles.php">Rol</a></li>
             <li><hr class="dropdown-divider"></li>
