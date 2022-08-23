@@ -1,6 +1,4 @@
 <?php
-session_start();
-include "conf.php";
 include "modelos/Rol.php";
 require_once('layouts/layout.php');
 $roles = Rol::obtener();

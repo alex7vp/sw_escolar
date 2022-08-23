@@ -17,6 +17,7 @@
                 
                 if ($usuok==$usuusuario && $pasok==$usupassword) {
                     $_SESSION['rol'] = $rol;
+                    $_SESSION['nombre'] = $usuusuario;
                     header("Location: home.php");
                 }else{
                     header("Location: index.php");

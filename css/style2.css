@@ -90,3 +90,10 @@ nav {
   text-decoration: none;
 }
 
+.btn_img {
+  filter: saturate(100%);  
+}
+.btn_img:hover {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}

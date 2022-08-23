@@ -1,5 +1,4 @@
 <?php
-include "conf.php";
 include "modelos/Provincia.php";
 require_once('layouts/layout.php');
 $nombre=$_POST["proNombre"];

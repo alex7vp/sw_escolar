@@ -1,6 +1,4 @@
 <?php
-session_start();
-include "conf.php";
 include "modelos/Provincia.php";
 require_once('layouts/layout.php');
 $provincias = Provincia::obtener();
@@ -33,13 +31,13 @@ if (!isset ($_SESSION['rol'])) {
             </div>
             <div class="col-md-6">
                 <div class="card card-body">
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <table class="table table-dark table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Provincias</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
+                                <th style="width: 30px;"></th>
+                                <th style="width: 30px;"></th>
                             </tr>
                         </thead>
                         <tbody id="developers">
@@ -48,10 +46,11 @@ if (!isset ($_SESSION['rol'])) {
                                 <td><?php echo $provincia ->proid?></td>
                                 <td><?php echo $provincia ->pronombre ?></td>
                                 <td>
-                                    <a href="editar_provincia.php?proid=<?php echo $provincia ->proid ?>" class="btn btn-grad btn-sm">Editar</a>
+                                    <a href="editar_provincia.php?proid=<?php echo $provincia ->proid ?>" ><img src="img/editar.png" alt="" class="btn_img">
+                                </a>
                                 </td>
                                 <td>
-                                    <a href="eliminar_provincia.php?proid=<?php echo $provincia ->proid ?>" class="btn btn-grad2 btn-sm">Eliminar</a>
+                                    <a href="eliminar_provincia.php?proid=<?php echo $provincia ->proid ?>" ><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                 </td>
                             </tr>
                             <?php } ?>

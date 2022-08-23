@@ -1,6 +1,5 @@
-<?php
-$raiz = '/sw_escolar';
-?>
+<?php  session_start();
+include "conf.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,6 +10,19 @@ $raiz = '/sw_escolar';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestión Escolar</title>
+    <link href="<?php if (isset($_SESSION['rol'])) {
+        if ($_SESSION['rol']==1) {
+            echo "/sw_escolar/css/style2.css";
+        }
+        if ($_SESSION['rol']==2) {
+            echo "/sw_escolar/css/docente.css";;
+        }
+        if ($_SESSION['rol']==3) {
+            echo "/sw_escolar/css/estudiante.css";;
+        }
+    }else {
+        echo "/sw_escolar/css/style.css";
+    }?>"  rel="stylesheet">
     <?php
     include_once('scripts.php');
     ?>
