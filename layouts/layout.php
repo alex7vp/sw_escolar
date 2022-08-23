@@ -12,7 +12,7 @@ include "conf.php"; ?>
     <title>Sistema de Gestión Escolar</title>
     <link href="<?php if (isset($_SESSION['rol'])) {
         if ($_SESSION['rol']==1) {
-            echo "/sw_escolar/css/style2.css";
+            echo "/sw_escolar/css/style.css";
         }
         if ($_SESSION['rol']==2) {
             echo "/sw_escolar/css/docente.css";;
