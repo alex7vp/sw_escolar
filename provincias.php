@@ -1,10 +1,15 @@
 <?php
+session_start();
+if ($_SESSION['rol']!=1) {
+    header("Location: 404.php");
+}
+include "conf.php";
 include "modelos/Provincia.php";
 require_once('layouts/layout.php');
 $provincias = Provincia::obtener();
-if (!isset ($_SESSION['rol'])) {
-    header("Location: index.php");
-}
+
+
+
 ?>
 <div class="card container mt-2">
     <div class="container">

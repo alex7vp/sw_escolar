@@ -1,4 +1,6 @@
 <?php
+session_start();
+include "conf.php";
 include "modelos/Ciudad.php";
 include "modelos/Provincia.php";
 require_once('layouts/layout.php');

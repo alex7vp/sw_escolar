@@ -1,5 +1,6 @@
 <?php 
-	//carga la plantilla con la header y el footer
+	session_start();
+	include "conf.php";
 	require_once('layouts/layout.php');	
 
  ?>
@@ -7,8 +8,21 @@
  <center>
  <div class="container">
     
- <img src="img/sac.png" style="width: 395px; height: 559px;" alt="">
+ <img src="img/logo.svg" style="width: 150px;" alt=""><br><br>
  </div>
+ 	<?php
+	if ($_SESSION['rol']==1) {
+		require_once('home_administrador.php');
+	}
+	if ($_SESSION['rol']==2) {
+		require_once('home_docente.php');
+	}
+	if ($_SESSION['rol']==3) {
+		require_once('home_estudiante.php');
+	}
+        
+        ?>
+ 
  </center>
 
 </body>
