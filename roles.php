@@ -1,10 +1,11 @@
 <?php
-include "modelos/Rol.php";
-require_once('layouts/layout.php');
-$roles = Rol::obtener();
 if ($_SESSION['rol']!=1) {
     header("Location: 404.php");
 }
+include "modelos/Rol.php";
+require_once('layouts/layout.php');
+$roles = Rol::obtener();
+
 ?>
 <div class="card container mt-2">
     <div class="container">
