@@ -36,7 +36,7 @@ $provincias = Provincia::obtener();
             </div>
             <div class="col-md-6">
                 <div class="card card-body">
-                    <table class="table table-dark table-striped table-bordered" style="width:100%">
+                    <table class="table table-info table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Id</th>

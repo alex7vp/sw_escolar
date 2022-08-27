@@ -66,7 +66,7 @@
               if (!isset($_SESSION["rol"])) {
                 echo ""; 
               } else {
-                echo "  ".$_SESSION["nombre"]."  ";
+                echo "  Administrador: ".$_SESSION["nombre"]."  ";
               }              
                ?>
               </ul>
