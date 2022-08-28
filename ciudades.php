@@ -11,9 +11,11 @@ if (!isset($_SESSION['rol'])) {
 
 ?>
 
-<div class="card container mt-2">
-    <div class="container">
+<div class="card container mt-3 shadow">
+    <div class="card-header">
         <h3 class="txt">Ciudades</h3>
+    </div>
+    <div class="card-body">
 
         <div class="row">
             <div class="col-md-4">
@@ -31,16 +33,16 @@ if (!isset($_SESSION['rol'])) {
                     <form action="nuevaciudad.php" id="agrCiudad" method="POST" style="display: none;">
                         <div class="form-group">
                             <div class="input-group mb-2">
-                            <span class="input-group-text" id="basic-addon1">Provincia</span>
-                            <select name="proid" class="form-select form-select">
-                                            <option value="1">Seleccione:</option>
-                                            <?php
-                                            $provincias = Provincia::obtener();
-                                            foreach ($provincias as $provincia) { ?>
-                                                <option value="<?php echo $provincia->proid ?>"><?php echo $provincia->pronombre ?></option>
+                                <span class="input-group-text" id="basic-addon1">Provincia</span>
+                                <select name="proid" class="form-select form-select">
+                                    <option value="1">Seleccione:</option>
+                                    <?php
+                                    $provincias = Provincia::obtener();
+                                    foreach ($provincias as $provincia) { ?>
+                                        <option value="<?php echo $provincia->proid ?>"><?php echo $provincia->pronombre ?></option>
 
-                                            <?php } ?>
-                                        </select>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="basic-addon1">Ciudad</span>
@@ -71,7 +73,7 @@ if (!isset($_SESSION['rol'])) {
                                     <td><?php echo $ciudad->pronombre ?></td>
                                     <td><?php echo $ciudad->ciunombre ?></td>
                                     <td>
-                                        <a href="editar_ciudad.php?ciuid=<?php echo $ciudad ->ciuid ?>" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
+                                        <a href="editar_ciudad.php?ciuid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
                                     <td>
                                         <a href="eliminar_ciudad.php?proid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad2 btn-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
@@ -85,8 +87,7 @@ if (!isset($_SESSION['rol'])) {
                             <div class="container">
                                 <div class="row">
                                     <div class="col-8">
-                                        <select name="select" class="form-select form-select">
-                                            <option value="1">Seleccione:</option>
+                                        <select name="select" placeholder="Selecciona una provincia" class="form-select form-select">
                                             <?php
                                             $provincias = Provincia::obtener();
                                             foreach ($provincias as $provincia) { ?>
@@ -127,7 +128,7 @@ if (!isset($_SESSION['rol'])) {
                                         <td><?php echo $ciudad->pronombre ?></td>
                                         <td><?php echo $ciudad->ciunombre ?></td>
                                         <td>
-                                            <a href="editar_ciudad.php?ciuid=<?php echo $ciudad ->ciuid ?>" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
+                                            <a href="editar_ciudad.php?ciuid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                         </td>
                                         <td>
                                             <a href="eliminar_ciudad.php?ciuid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad2 btn-sm" style="color: white;"><img src="img/eliminar.png" alt="" class="btn_img"></a>
@@ -141,8 +142,8 @@ if (!isset($_SESSION['rol'])) {
 
                 </div>
             </div>
-        </div><br>
-    </div>
+        </div>
+    </div><br>
 </div>
 
 </body>

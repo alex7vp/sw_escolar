@@ -13,7 +13,7 @@ $ciudad = Ciudad::obtenerUno($ciuid);
         <div class="card-header">
             <h1 class="txt">Ciudades</h1>
         </div>
-        <div class="card-body">
+        <div class="card-body shadow">
 
             <h5 class="card-title">Editar Ciudad</h5>
             <form action="actualizar_ciudad.php" class="form-control" method="POST">
@@ -49,7 +49,7 @@ $ciudad = Ciudad::obtenerUno($ciuid);
                         <input type="text" class="form-control" id="pronombre" name="ciunombre" value="<?php echo $ciudad->ciunombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1">
                     </div>
                     <div class="col ">
-                        <button class="btn btn-primary" type="submit"><img src="img/actualizar.png">Actualizar</button>
+                        <button class="btn btn-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button>
                     </div>
                 </div>
 

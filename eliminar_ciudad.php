@@ -6,5 +6,9 @@ include "modelos/Ciudad.php";
 require_once('layouts/layout.php');
 Ciudad::eliminar($_GET["ciuid"]);
 ?>
-
-<a href="ciudades.php" class=""><button type="button" class="btn btn-primary" id="liveAlertBtn">Ciudad eliminada correctamente</button></a>
+<div class="card position-absolute bottom-50 end-50 shadow rounded">
+    <div class="card-header"><img src="img/checked.png" alt=""> Transacción exitosa</div>
+    <div class="card-body">
+    <a href="ciudades.php" class="liveAlertBtn"><button type="button" class="btn btn-primary" id="liveAlertBtn">Ciudad eliminada correctamente</button></a>
+    </div>    
+</div>  

@@ -11,7 +11,7 @@ $provincias = Provincia::obtener();
 
 
 ?>
-<div class="card container mt-2">
+<div class="card container mt-2 shadow">
     <div class="container">
         <h3 class="txt">Provincias</h3>
 
