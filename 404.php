@@ -17,7 +17,7 @@
 				<img src="img/logo.svg" style="margin-top:20px ;margin-left: 20px;" class="login_icon">
 
 				<legend>
-					<h1>Error 404</h1>
+					<h1>Error 403</h1>
 				</legend><br>
 				<div class="login__field txt">ACCESO RESTRINGIDO</div>
 				<a class="button login__submit" type="submit" href="salir.php">

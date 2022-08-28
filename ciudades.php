@@ -28,11 +28,11 @@ if (!isset($_SESSION['rol'])) {
             </div>
             <div class="col-md-8">
                 <div class="card card-body">
-                    <form action="" id="agrCiudad" method="POST" style="display: none;">
+                    <form action="nuevaciudad.php" id="agrCiudad" method="POST" style="display: none;">
                         <div class="form-group">
                             <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1">Provincia</span>
-                            <select name="select" class="form-select form-select">
+                            <select name="proid" class="form-select form-select">
                                             <option value="1">Seleccione:</option>
                                             <?php
                                             $provincias = Provincia::obtener();
@@ -44,7 +44,7 @@ if (!isset($_SESSION['rol'])) {
                             </div>
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="basic-addon1">Ciudad</span>
-                                <input type="text" class="form-control" name="proNombre" id="proNombre" placeholder="Ingresa el nombre de la provincia" aria-label="Username" aria-describedby="basic-addon1" required>
+                                <input type="text" class="form-control" name="ciuNombre" id="proNombre" placeholder="Ingresa el nombre de la ciudad" aria-label="Username" aria-describedby="basic-addon1" required>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-grad1 btn-sm" type="submit" style="color: white;">Agregar Ciudad</button>
@@ -71,10 +71,10 @@ if (!isset($_SESSION['rol'])) {
                                     <td><?php echo $ciudad->pronombre ?></td>
                                     <td><?php echo $ciudad->ciunombre ?></td>
                                     <td>
-                                        <a href="editar_provincia.php" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
+                                        <a href="editar_ciudad.php?ciuid=<?php echo $ciudad ->ciuid ?>" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
                                     <td>
-                                        <a href="eliminar_provincia.php?proid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad2 btn-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                        <a href="eliminar_ciudad.php?proid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad2 btn-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -127,10 +127,10 @@ if (!isset($_SESSION['rol'])) {
                                         <td><?php echo $ciudad->pronombre ?></td>
                                         <td><?php echo $ciudad->ciunombre ?></td>
                                         <td>
-                                            <a href="editar_provincia.php" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
+                                            <a href="editar_ciudad.php?ciuid=<?php echo $ciudad ->ciuid ?>" class="btn btn-grad btn-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                         </td>
                                         <td>
-                                            <a href="eliminar_provincia.php?proid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad2 btn-sm" style="color: white;"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                            <a href="eliminar_ciudad.php?ciuid=<?php echo $ciudad->ciuid ?>" class="btn btn-grad2 btn-sm" style="color: white;"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                         </td>
                                     </tr>
                                 <?php } ?>

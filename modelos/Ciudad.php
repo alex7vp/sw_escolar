@@ -3,24 +3,29 @@ class Ciudad
 {
     private $ciunombre, $proid, $ciuid;
 
-    public function __construct($ciuNombre, $ciuId = null)
+    public function __construct($proid, $ciunombre, $ciuid = null)
     {
-        
-        $this->ciuNombre = $ciuNombre;
-        if ($ciuId) {
-            $this->proid = $ciuId;
-        }
+        $this->proid = $proid;
+        $this->ciunombre = $ciunombre;
+        if ($ciuid) {
+            $this->ciuid = $ciuid;
+        }        
     }
 
     public function guardar()
     {
+        /*global $conn;
+        $sentencia = 'INSERT INTO ciudades (proid, ciunombre) VALUES (proid=:proid, ciunombre=:ciunombre)';
+        $registros = $conn->prepare($sentencia);
+        $registros->execute(array(":proid" => $proid, ":ciunombre" => $ciunombre));
+        return $registros = $registros->fetch(PDO::FETCH_OBJ);*/
         global $conn;
         $sentencia = $conn->prepare("INSERT INTO ciudades
-            (proId, ciuNombre)
+            (proid, ciunombre)
                 VALUES
                 (?,?)");
-        $sentencia->bindParam(1,$this->proId);
-        $sentencia->bindParam(2,$this->ciuNombre);
+        $sentencia->bindParam(1,$this->proid);
+        $sentencia->bindParam(2,$this->ciunombre);        
         $sentencia->execute();
     }
 
@@ -38,6 +43,15 @@ class Ciudad
         global $conn;
         $sentencia = $conn->query("SELECT * from provincias LIMIT 5 OFFSET ".$upset);
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+    public static function obtenerUno($ciuid)
+    {
+        global $conn;
+
+        $sentencia = 'SELECT ciuid, proid, ciunombre FROM ciudades WHERE ciuid=:ciuid ';
+        $registros = $conn->prepare($sentencia);
+        $registros->execute(array(":ciuid" => $ciuid));
+        return $registros = $registros->fetch(PDO::FETCH_OBJ);
     }
     public static function porProvincias($proid)
     {        
@@ -59,12 +73,12 @@ class Ciudad
         return $registros = $registros->fetchAll( PDO::FETCH_OBJ );  */   
     }
     
-    public function actualizar($pronombre,$proid)
+    public function actualizar($proid, $ciunombre,$ciuid)
     {
         global $conn;        
-        $sentencia = 'UPDATE provincias SET pronombre=:pronombre WHERE proid=:proid ';
+        $sentencia = 'UPDATE ciudades SET ciunombre=:ciunombre , proid=:proid WHERE ciuid=:ciuid ';
         $registros = $conn->prepare( $sentencia );     
-        $registros->execute( array(":pronombre" => $pronombre, ":proid" => $proid) ); 
+        $registros->execute( array(":proid" => $proid,":ciunombre" => $ciunombre,":ciuid" => $ciuid) ); 
         return $registros = $registros->fetch( PDO::FETCH_OBJ );
         /*global $conn;
         try {
@@ -79,11 +93,11 @@ class Ciudad
        
     }
 
-    public static function eliminar($proid)
+    public static function eliminar($ciuid)
     {
         global $conn;
-        $sentencia = $conn->prepare("DELETE FROM provincias WHERE proid = ?");
-        $sentencia->bindParam(1, $proid);
+        $sentencia = $conn->prepare("DELETE FROM ciudades WHERE ciuid = ?");
+        $sentencia->bindParam(1, $ciuid);
         $sentencia->execute();
     }
 }

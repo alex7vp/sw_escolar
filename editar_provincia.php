@@ -4,7 +4,7 @@ include "conf.php";
 include "modelos/Provincia.php";
 //carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
-$proid = $_GET["ciuid"];
+$proid = $_GET["proid"];
 $provincia = Provincia::obtenerUno($proid);
 /*$query = 'SELECT proid, pronombre FROM provincias WHERE proid=:proid ';
     $registros = $conn->prepare( $query ); //Preparamos la consulta      
