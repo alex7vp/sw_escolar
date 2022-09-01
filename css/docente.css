@@ -21,11 +21,11 @@ body {
 
 nav {
   color: white;
-  background: #0F2027;
+  background: #630b72;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #194a5a, #048cc7);
+  background: -webkit-linear-gradient(to right, #5c0b2e, #a32468, #833358);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #194a5a, #048cc7);
+  background: linear-gradient(to right, #5c0b2e, #a32468, #833358);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 

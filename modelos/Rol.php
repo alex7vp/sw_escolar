@@ -1,65 +1,62 @@
 <?php
 class Rol
 {
-    private $nombre, $id;
+    private $rolnombre, $rolid;
 
-    public function __construct($nombre, $id = null)
+    public function __construct($rolnombre, $rolid = null)
     {
-        $this->nombre = $nombre;
-        if ($id) {
-            $this->id = $id;
+        $this->rolnombre = $rolnombre;
+        if ($rolid) {
+            $this->id = $rolid;
         }
     }
 
     public function guardar()
     {
-        global $mysqli;
-        $sentencia = $mysqli->prepare("INSERT INTO provincias
-            (nombre)
+        global $conn;
+        $sentencia = $conn->prepare("INSERT INTO roles
+            (rolnombre)
                 VALUES
                 (?)");
-        $sentencia->bind_param("ss", $this->nombre);
+        $sentencia->bindParam(1, $this->rolnombre);
         $sentencia->execute();
     }
 
     public static function obtener()
     {
         global $conn;
-        $sentencia = $conn->query("SELECT * from roles");
+        $sentencia = $conn->query("SELECT * from roles ORDER BY rolid ");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        //$resultado = $mysqli->query("SELECT id, nombre FROM provincias");
-        //return $resultado->fetch_all(MYSQLI_ASSOC);
     }
     public static function obtenerLimite($upset)
     {
         global $conn;
-        $sentencia = $conn->query("SELECT * from roles LIMIT 5 OFFSET ".$upset);
+        $sentencia = $conn->query("SELECT * from roles LIMIT 5 OFFSET " . $upset);
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        //$resultado = $mysqli->query("SELECT id, nombre FROM provincias");
-        //return $resultado->fetch_all(MYSQLI_ASSOC);
     }
     public static function obtenerUno($rolid)
     {
-        global $conn;        
+        global $conn;
+
         $sentencia = 'SELECT rolid, rolnombre FROM roles WHERE rolid=:rolid ';
-        $registros = $conn->prepare( $sentencia );     
-        $registros->execute( array(":rolid" => $rolid) ); 
-        return $registros = $registros->fetch( PDO::FETCH_OBJ );        
+        $registros = $conn->prepare($sentencia);
+        $registros->execute(array(":rolid" => $rolid));
+        return $registros = $registros->fetch(PDO::FETCH_OBJ);
     }
-    
-    public function actualizar()
+    public function actualizar($rolnombre, $rolid)
     {
-        global $mysqli;
-        $sentencia = $mysqli->prepare("update provincias set nombre = ?, grupo = ? where id = ?");
-        $sentencia->bind_param("ssi", $this->nombre, $this->id);
-        $sentencia->execute();
+        global $conn;
+        $sentencia = 'UPDATE roles SET rolnombre=:rolnombre WHERE rolid=:rolid ';
+        $registros = $conn->prepare($sentencia);
+        $registros->execute(array(":rolnombre" => $rolnombre, ":rolid" => $rolid));
+        return $registros = $registros->fetch(PDO::FETCH_OBJ);
     }
 
-    public static function eliminar($id)
+    public static function eliminar($rolid)
     {
-        global $mysqli;
-        $sentencia = $mysqli->prepare("DELETE FROM provincias WHERE id = ?");
-        $sentencia->bind_param("i", $id);
+        global $conn;
+        $sentencia = $conn->prepare("DELETE FROM roles WHERE rolid = ?");
+        $sentencia->bindParam(1, $rolid);
         $sentencia->execute();
     }
 }

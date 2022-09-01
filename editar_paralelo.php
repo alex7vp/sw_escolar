@@ -1,29 +1,29 @@
 <?php
 session_start();
 include "conf.php";
-include "modelos/Provincia.php";
+include "modelos/Paralelo.php";
 //carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
-$proid = $_GET["proid"];
-$provincia = Provincia::obtenerUno($proid);
+$parid = $_GET["parid"];
+$paralelo = Paralelo::obtenerUno($parid);
 ?>
 <div class="container">
     <div class="card mt-5">
         <div class="card-header">
-            <h1 class="txt">Provincias</h1>
+            <h1 class="txt">Paralelos</h1>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Editar Provincia</h5>
-            <form action="actualizar_provincia.php" class="form-control" method="POST">
-                <input type="hidden" id="proid" name="proid" value="<?php echo $provincia->proid ?>">
+            <h5 class="card-title">Editar Paralelo</h5>
+            <form action="actualizar_paralelo.php" class="form-control" method="POST">
+                <input type="hidden" id="parid" name="parid" value="<?php echo $paralelo->parid ?>">
                 <div class="row card-body">
                     <div class="col col-2">
                         <img src="img/logo2.svg" alt="">
                     </div>
                     <div class="col">
                         <div class="input-group mb-2">
-                            <span class="input-group-text" id="basic-addon1">Provincia</span>
-                            <input type="text" class="form-control" id="pronombre" name="pronombre" value="<?php echo $provincia->pronombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1" required>
+                            <span class="input-group-text" id="basic-addon1">Paralelo</span>
+                            <input type="text" class="form-control" id="parnombres" name="parnombres" value="<?php echo $paralelo->parnombres ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1" required>
                         </div>
                     </div>
                     <div class="col ">

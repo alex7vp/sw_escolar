@@ -12,12 +12,16 @@
                 $rol= $login->rolid;
                 $usuok= $login->usuusuario;
                 $pasok= $login->usupassword;  
+                $nombre = $login->usunombre;
+                $apellido = $login->usuapellido;
                 $usuok.$usuusuario;
                 $usupassword.$pasok;
                 
                 if ($usuok==$usuusuario && $pasok==$usupassword) {
                     $_SESSION['rol'] = $rol;
-                    $_SESSION['nombre'] = $usuusuario;
+                    $_SESSION['usuario'] = $usuusuario;
+                    $_SESSION['nombre'] = $nombre;
+                    $_SESSION['apellido'] = $apellido;
                     header("Location: home.php");
                 }else{
                     header("Location: index.php");

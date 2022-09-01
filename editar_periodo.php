@@ -1,29 +1,29 @@
 <?php
 session_start();
 include "conf.php";
-include "modelos/Provincia.php";
+include "modelos/Periodo.php";
 //carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
-$proid = $_GET["proid"];
-$provincia = Provincia::obtenerUno($proid);
+$perid = $_GET["perid"];
+$periodo = Periodo::obtenerUno($perid);
 ?>
 <div class="container">
     <div class="card mt-5">
         <div class="card-header">
-            <h1 class="txt">Provincias</h1>
+            <h1 class="txt">Periodos Lectivos</h1>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Editar Provincia</h5>
-            <form action="actualizar_provincia.php" class="form-control" method="POST">
-                <input type="hidden" id="proid" name="proid" value="<?php echo $provincia->proid ?>">
+            <h5 class="card-title">Editar Periodo Lectivo</h5>
+            <form action="actualizar_periodo.php" class="form-control" method="POST">
+                <input type="hidden" id="perid" name="perid" value="<?php echo $periodo->perid ?>">
                 <div class="row card-body">
                     <div class="col col-2">
                         <img src="img/logo2.svg" alt="">
                     </div>
                     <div class="col">
                         <div class="input-group mb-2">
-                            <span class="input-group-text" id="basic-addon1">Provincia</span>
-                            <input type="text" class="form-control" id="pronombre" name="pronombre" value="<?php echo $provincia->pronombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1" required>
+                            <span class="input-group-text" id="basic-addon1">Período Lectivo</span>
+                            <input type="text" class="form-control" id="pronombre" name="pernombre" value="<?php echo $periodo->pernombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1" required>
                         </div>
                     </div>
                     <div class="col ">

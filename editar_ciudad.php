@@ -19,10 +19,13 @@ $ciudad = Ciudad::obtenerUno($ciuid);
             <form action="actualizar_ciudad.php" class="form-control" method="POST">
                 <input type="hidden" id="ciuid" name="ciuid" value="<?php echo $ciudad->ciuid ?>">
                 <div class="row card-body">
+                    <div class="col col-2">
+                        <img src="img/logo2.svg" alt="">
+                    </div>
                     <div class="col ">
-                        <div class="container">
-                            <label id="basic-addon1">Ciudades</label>
-                            <select name="proid" class="form-select" style="width: 400px;">
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1">Provincia</span>
+                            <select name="proid" class="form-select form-select">
                                 <option value="1">Seleccione:</option>
                                 <?php
                                 $provincias = Provincia::obtener();
@@ -42,18 +45,16 @@ $ciudad = Ciudad::obtenerUno($ciuid);
                                 <?php } ?>
                             </select>
                         </div>
-
                     </div>
                     <div class="col ">
-                        Ciudad:
-                        <input type="text" class="form-control" id="pronombre" name="ciunombre" value="<?php echo $ciudad->ciunombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1">
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1">Ciudad</span>
+                            <input type="text" class="form-control" id="pronombre" name="ciunombre" value="<?php echo $ciudad->ciunombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1">
+                        </div>
                     </div>
                     <div class="col ">
-                        <button class="btn btn-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button>
+                        <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button>
                     </div>
-                </div>
-
-
             </form>
         </div>
     </div>

@@ -28,52 +28,46 @@
             </li>
             <li><a class="dropdown-item" href="">Areas</a></li>
             <li><a class="dropdown-item" href="">Materias</a></li>
+            <li><a class="dropdown-item" href="paralelos.php">Paralelos</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="">Estados de Asistencia</a></li>
+            <li><a class="dropdown-item" href="periodos.php">Períodos Lectivos</a></li>
+            <li><a class="dropdown-item" href="estadoasistencia.php">Estados de Asistencia</a></li>
           </ul>
         </li>
 
       </ul>
       <li class="d-flex nav-item dropdown text-light">
         <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Sesión
+          <?php
+          if (!isset($_SESSION["rol"])) {
+            echo "";
+          } else {
+            echo "  Usuario: " . $_SESSION["nombre"] . "  " . $_SESSION["apellido"];
+          }
+          ?>
         </a>
         <ul class="dropdown-menu text-light">
 
-          <li><a class="dropdown-item" href="<?php 
+          <li><a class="dropdown-item" href="<?php
+                                              if (!isset($_SESSION["rol"])) {
+                                                echo "index.php";
+                                              } else {
+                                                echo "salir.php";
+                                              }
+                                              ?>">
+              <?php
               if (!isset($_SESSION["rol"])) {
-                echo "index.php"; 
-              } else {
-                echo "salir.php";
-              }              
-               ?>">
-              <?php 
-              if (!isset($_SESSION["rol"])) {
-                echo "Iniciar Session"; 
+                echo "Iniciar Session";
               } else {
                 echo "Cerrar Session";
-              }              
-               ?>
+              }
+              ?>
             </a>
           </li>
-          
-
         </ul>
-              <ul class="d-flex">
-              <?php 
-              if (!isset($_SESSION["rol"])) {
-                echo ""; 
-              } else {
-                echo "  Administrador: ".$_SESSION["nombre"]."  ";
-              }              
-               ?>
-              </ul>
-        
-          
       </li>
-
     </div>
   </div>
 </nav>

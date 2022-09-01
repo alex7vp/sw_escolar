@@ -3,14 +3,14 @@ if ($_SESSION['rol'] != 1) {
     header("Location: 404.php");
 }
 include "conf.php";
-include "modelos/Rol.php";
+include "modelos/Paralelo.php";
 require_once('layouts/layout.php');
-$roles = Rol::obtener();
+$paralelos = Paralelo::obtener();
 
 ?>
 <div class="card container mt-2">
     <div class="card-header">
-        <h3 class="txt">Roles</h3>
+        <h3 class="txt">Paralelos</h3>
     </div>
     <div class="card-body">
         <div class="row">
@@ -23,13 +23,13 @@ $roles = Rol::obtener();
                     </div>
                     <div class="col mt-4">
                         <div class="card card-body">
-                            <form action="nuevorol.php" method="POST">
+                            <form action="nuevoparalelo.php" method="POST">
                                 <div class="row">
                                     <div class="col col-8">
                                         <div class="form-group">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">Rol</span>
-                                                <input type="text" class="form-control" name="rolnombre" placeholder="Ingresa el nombre del rol" aria-label="Username" aria-describedby="basic-addon1">
+                                                <span class="input-group-text" id="basic-addon1">Paralelos</span>
+                                                <input type="text" class="form-control" name="parnombre" placeholder="Ingresa el paralelo" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                     </div>
@@ -51,21 +51,21 @@ $roles = Rol::obtener();
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Rol</th>
+                                <th>Paralelo</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody id="developers">
-                            <?php foreach ($roles as $rol) { ?>
+                            <?php foreach ($paralelos as $paralelo) { ?>
                                 <tr>
-                                    <td><?php echo $rol->rolid ?></td>
-                                    <td><?php echo $rol->rolnombre ?></td>
+                                    <td><?php echo $paralelo->parid ?></td>
+                                    <td><?php echo $paralelo->parnombres ?></td>
                                     <td>
-                                        <a href="editar_rol.php?rolid=<?php echo $rol->rolid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
+                                        <a href="editar_paralelo.php?parid=<?php echo $paralelo->parid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
                                     <td>
-                                    <a href="eliminar_rol.php?rolid=<?php echo $rol->rolid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                    <a href="eliminar_paralelo.php?parid=<?php echo $paralelo->parid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                     </td>
                                 </tr>
                             <?php } ?>

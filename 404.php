@@ -20,8 +20,8 @@
 					<h1>Error 403</h1>
 				</legend><br>
 				<div class="login__field txt">ACCESO RESTRINGIDO</div>
-				<a class="button login__submit" type="submit" href="salir.php">
-					<span class="button__text">Ingresa nuevamente</span>
+				<a class="button login__submit" type="submit" href="home.php">
+					<span class="button__text">Volver al inicio</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</a>
 				<div class="social-login">
