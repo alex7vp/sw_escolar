@@ -8,7 +8,7 @@
 			$usuusuario = $_POST["usuusuario"];
 			$usupassword = $_POST["usupassword"];
             try {
-                $login = Comprobar::obtenerUno($usuusuario,$usupassword);
+                $login = Comprobar::obtenerAdministrador($usuusuario,$usupassword);
                 $rol= $login->rolid;
                 $usuok= $login->usuusuario;
                 $pasok= $login->usupassword;  

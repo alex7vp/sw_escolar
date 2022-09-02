@@ -11,21 +11,28 @@ class Comprobar
         }
     }
 
-    public static function obtenerUno($usuusuario, $usupassword)
+    public static function obtenerAdministrador($usuusuario, $usupassword)
     {
-        global $conn;
-        /*$sentencia = $conn->query("SELECT * FROM provincias WHERE proid= ?");
-        $sentencia->bindParam("s", $proid);
-        $sentencia->execute();
-        //$resultado = $sentencia->;
-        return $resultado = $sentencia->fetch(PDO::FETCH_OBJ);*/
-
+        global $conn;    
+        $sentencia = 'SELECT * FROM usuarios WHERE usuusuario=:usuusuario AND usupassword=:usupassword ';
+        $registros = $conn->prepare( $sentencia );     
+        $registros->execute( array(":usuusuario" => $usuusuario, ":usupassword" => $usupassword) ); 
+        return $registros = $registros->fetch( PDO::FETCH_OBJ );        
+    }
+    public static function obtenerDocente($usuusuario, $usupassword)
+    {
         global $conn;        
         $sentencia = 'SELECT * FROM usuarios WHERE usuusuario=:usuusuario AND usupassword=:usupassword ';
         $registros = $conn->prepare( $sentencia );     
         $registros->execute( array(":usuusuario" => $usuusuario, ":usupassword" => $usupassword) ); 
-        return $registros = $registros->fetch( PDO::FETCH_OBJ );
-
-        
+        return $registros = $registros->fetch( PDO::FETCH_OBJ );        
+    }
+    public static function obtenerEstudiante($usuusuario, $usupassword)
+    {
+        global $conn;        
+        $sentencia = 'SELECT * FROM usuarios WHERE usuusuario=:usuusuario AND usupassword=:usupassword ';
+        $registros = $conn->prepare( $sentencia );     
+        $registros->execute( array(":usuusuario" => $usuusuario, ":usupassword" => $usupassword) ); 
+        return $registros = $registros->fetch( PDO::FETCH_OBJ );        
     }
 }

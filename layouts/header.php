@@ -17,6 +17,10 @@
             Configuraciones
           </a>
           <ul class="dropdown-menu text-light">
+          <li><a class="dropdown-item" href="usuarios.php">Usuarios</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item" href="provincias.php"> Provincias</a></li>
             <li><a class="dropdown-item" href="ciudades.php">Ciudades</a></li>
             <li>
@@ -26,8 +30,8 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="">Areas</a></li>
-            <li><a class="dropdown-item" href="">Materias</a></li>
+            <li><a class="dropdown-item" href="areas.php">Areas</a></li>
+            <li><a class="dropdown-item" href="materias.php">Materias</a></li>
             <li><a class="dropdown-item" href="paralelos.php">Paralelos</a></li>
             <li>
               <hr class="dropdown-divider">
