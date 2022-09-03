@@ -87,7 +87,7 @@ if (!isset($_SESSION['rol'])) {
                                     </div>
                                     <div class="input-group mb-2">
                                         <span class="input-group-text" id="basic-addon1">Ciudad</span>
-                                        <select name="rolid" class="form-select form-select">
+                                        <select name="ciuid" class="form-select form-select">
                                             <?php
                                             $ciudades = Ciudad::obtener();
                                             foreach ($ciudades as $ciudad) { ?>
@@ -131,6 +131,7 @@ if (!isset($_SESSION['rol'])) {
                                     <th>Usuario</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
+                                    <th>Cedula</th>
                                     <th></th>
                                     <th></th>
                             </tr>
@@ -143,6 +144,7 @@ if (!isset($_SESSION['rol'])) {
                                     <td><?php echo $usuario->usuusuario ?></td>
                                     <td><?php echo $usuario->usunombre ?></td>
                                     <td><?php echo $usuario->usuapellido ?></td>
+                                    <td><?php echo $usuario->usucedula ?></td>
                                     <td>
                                         <a href="editar_usuario.php?usuid=<?php echo $usuario->usuid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
@@ -191,6 +193,7 @@ if (!isset($_SESSION['rol'])) {
                                     <th>Usuario</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
+                                    <th>Cedula</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -203,6 +206,7 @@ if (!isset($_SESSION['rol'])) {
                                         <td><?php echo $usuario->usuusuario ?></td>
                                         <td><?php echo $usuario->usunombre ?></td>
                                         <td><?php echo $usuario->usuapellido ?></td>
+                                        <td><?php echo $usuario->usucedula ?></td>
                                         <td>
                                             <a href="editar_usuario.php?usuid=<?php echo $usuario->usuid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                         </td>

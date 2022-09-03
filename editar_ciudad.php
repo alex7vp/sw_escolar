@@ -26,7 +26,6 @@ $ciudad = Ciudad::obtenerUno($ciuid);
                         <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1">Provincia</span>
                             <select name="proid" class="form-select form-select">
-                                <option value="1">Seleccione:</option>
                                 <?php
                                 $provincias = Provincia::obtener();
                                 foreach ($provincias as $provincia) {

@@ -11,7 +11,7 @@ class Comprobar
         }
     }
 
-    public static function obtenerAdministrador($usuusuario, $usupassword)
+    public static function obtener($usuusuario, $usupassword)
     {
         global $conn;    
         $sentencia = 'SELECT * FROM usuarios WHERE usuusuario=:usuusuario AND usupassword=:usupassword ';
