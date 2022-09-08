@@ -6,9 +6,8 @@ include "conf.php";
     require_once('layouts/layout.php');
     $curid=$_POST["curid"];
     $curnombre=$_POST["curnombre"];
-    $parid= $_POST["parid"];
-    $paraleloupdate = new Curso($parid, $curnombre,$_POST["curid"]);
-    $paraleloupdate->actualizar($parid, $curnombre, $curid);
+    $paraleloupdate = new Curso($curnombre,$_POST["curid"]);
+    $paraleloupdate->actualizar($curnombre, $curid);
     ?>
 <div class="card position-absolute bottom-50 end-50 shadow rounded">
     <div class="card-header"><img src="img/checked.png" alt=""> Transacción exitosa</div>

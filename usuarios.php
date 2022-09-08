@@ -31,20 +31,20 @@ if (!isset($_SESSION['rol'])) {
                     </div>
                     <div class="row mt-2">
                         <div class="col">
-                            <button id="btn_agrusuario" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('agrusuario','todas','roles')"><img src="img/usuario+.png" alt="">
-                                <p>Agregar Usuario</p>
+                            <button id="btn_agrusuario" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('agrusuario','todas','roles')"><img src="img/agregar-usuario.png" alt="">
+                                <p>Agregar Usuarios</p>
                             </button>
                         </div>
                         <div class="col">
-                            <button id="btn_agrusuario" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('todas','agrusuario','roles')"><img src="img/usuario.png" alt="">
-                                <p>Todos los usuarios</p>
+                            <button id="btn_agrusuario" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('todas','agrusuario','roles')"><img src="img/usuarios.png" alt="">
+                                <p>Todos los Usuarios</p>
                             </button>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <center>
                             <div class="col">
-                                <button id="btn_agrusuario" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('roles','agrusuario','todas')"><img src="img/buscar_usuario.png" alt="">
+                                <button id="btn_agrusuario" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('roles','agrusuario','todas')"><img src="img/usuario.png" alt="">
                                     <p>Por roles</p>
                                 </button>
                             </div>

@@ -30,7 +30,7 @@ if (!isset($_SESSION['rol'])) {
                     </div>
                     <div class="row mt-2">
                         <div class="col">
-                            <button id="btn_agrMateria" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('agrmateria','todas','areas')"><img src="img/materia+.png" alt="">
+                            <button id="btn_agrMateria" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('agrmateria','todas','areas')"><img src="img/agregar_materia.png" alt="">
                                 <p>Agregar Materia</p>
                             </button>
                         </div>
@@ -43,8 +43,8 @@ if (!isset($_SESSION['rol'])) {
                     <div class="row mt-2">
                         <center>
                             <div class="col">
-                                <button id="btn_agrmateria" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('areas','agrmateria','todas')"><img src="img/buscar_materia.png" alt="">
-                                    <p>Por materias</p>
+                                <button id="btn_agrmateria" class="btn btn-outline-primary shadow" onclick="ActivarOcultarVarios('areas','agrmateria','todas')"><img src="img/todas_materias.png" alt="">
+                                    <p>Por áreas</p>
                                 </button>
                             </div>
                         </center>

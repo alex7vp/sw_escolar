@@ -75,6 +75,27 @@ class Usuario
         $registros ->execute(array(":rolid" => $rolid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
     }
+    public static function porDocentes()
+    {        
+        global $conn;
+        $sentencia = $conn->query("SELECT usuid, usuusuario, usunombre, usucedula, usuapellido, usuarios.rolid, rolnombre
+        FROM usuarios, roles
+        WHERE usuarios.rolid= roles.rolid AND usuarios.rolid= 2
+        ORDER BY usuarios.rolid");
+        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        echo "Ok";
+    }
+
+    public static function porEstudiantes()
+    {        
+        global $conn;
+        $sentencia = $conn->query("SELECT usuid, usuusuario, usunombre, usucedula, usuapellido, usuarios.rolid, rolnombre
+        FROM usuarios, roles
+        WHERE usuarios.rolid= roles.rolid AND usuarios.rolid= 3
+        ORDER BY usuarios.rolid");
+        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        echo "Ok";
+    }
     
     public function actualizar($rolid, $usuusuario, $usupassword, $usunombre, $usuapellido, $ciuid, $usucedula, $usudireccion, $usutelefono, $usuid)
     {

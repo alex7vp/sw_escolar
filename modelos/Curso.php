@@ -1,11 +1,10 @@
 <?php
 class Curso
 {
-    private $curnombre, $parid, $curid;
+    private $curnombre, $curid;
 
-    public function __construct($parid, $curnombre, $curid = null)
+    public function __construct($curnombre, $curid = null)
     {
-        $this->parid = $parid;
         $this->curnombre = $curnombre;
         if ($curid) {
             $this->curid = $curid;
@@ -16,21 +15,19 @@ class Curso
     {        
         global $conn;
         $sentencia = $conn->prepare("INSERT INTO cursos
-            (parid, curnombre)
+            (curnombre)
                 VALUES
-                (?,?)");
-        $sentencia->bindParam(1,$this->parid);
-        $sentencia->bindParam(2,$this->curnombre);        
+                (?)");
+        $sentencia->bindParam(1,$this->curnombre);        
         $sentencia->execute();
     }
 
     public static function obtener()
     {
         global $conn;
-        $sentencia = $conn->query("SELECT curid, curnombre, cursos.parid, parnombres 
-        FROM cursos, paralelos
-        WHERE cursos.parid= paralelos.parid
-        ORDER BY cursos.parid");
+        $sentencia = $conn->query("SELECT curid, curnombre
+        FROM cursos
+        ORDER BY curnombre");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
     public static function obtenerLimite($upset)
@@ -43,29 +40,18 @@ class Curso
     {
         global $conn;
 
-        $sentencia = 'SELECT curid, parid, curnombre FROM cursos WHERE curid=:curid ';
+        $sentencia = 'SELECT curid, curnombre FROM cursos WHERE curid=:curid ';
         $registros = $conn->prepare($sentencia);
         $registros->execute(array(":curid" => $curid));
         return $registros = $registros->fetch(PDO::FETCH_OBJ);
     }
-    public static function porParalelos($parid)
-    {        
-        global $conn;
-        $sentencia = "SELECT curid, curnombre, cursos.parid, parnombres 
-        FROM cursos, paralelos
-        WHERE paralelos.parid=cursos.parid AND cursos.parid= :parid
-        ORDER BY cursos.parid";
-        $registros = $conn->prepare( $sentencia ); 
-        $registros ->execute(array(":parid" => $parid));
-        return $resultado = $registros->fetchAll(PDO::FETCH_OBJ);   
-    }
-    
-    public function actualizar($parid, $curnombre,$curid)
+   
+    public function actualizar($curnombre,$curid)
     {
         global $conn;        
-        $sentencia = 'UPDATE cursos SET curnombre=:curnombre , parid=:parid WHERE curid=:curid ';
+        $sentencia = 'UPDATE cursos SET curnombre=:curnombre WHERE curid=:curid ';
         $registros = $conn->prepare( $sentencia );     
-        $registros->execute( array(":parid" => $parid,":curnombre" => $curnombre,":curid" => $curid) ); 
+        $registros->execute( array(":curnombre" => $curnombre,":curid" => $curid) ); 
         return $registros = $registros->fetch( PDO::FETCH_OBJ );
     }
 

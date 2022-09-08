@@ -4,8 +4,7 @@ include "conf.php";
 include "modelos/Curso.php";
 require_once('layouts/layout.php');
 $curnombre=$_POST["curnombre"];
-$parid=$_POST["parid"];
-$curso = new Curso($parid,$curnombre);
+$curso = new Curso($curnombre);
 $curso->guardar();
 ?>
 <div class="card position-absolute bottom-50 end-50 shadow rounded">

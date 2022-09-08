@@ -19,12 +19,12 @@ $usuario = Usuario::obtenerUno($usuid);
             <h5 class="card-title">Editar Usuario</h5>
             <form action="actualizar_usuario.php" id="agrusuario" method="POST">
                 <div class="form-group">
-                <input type="hidden" class="form-control" name="usuid" placeholder="Ingresa un alias para el usuario" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $usuario->usuid ?>" required>
+                    <input type="hidden" class="form-control" name="usuid" placeholder="Ingresa un alias para el usuario" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $usuario->usuid ?>" required>
                     <div class="row">
                         <div class="col">
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="basic-addon1">Rol</span>
-                                <select name="rolid" class="form-select form-select">
+                                <select name="rolid" class="form-select form-select" disabled>
                                     <?php
                                     $roles = Rol::obtener();
                                     foreach ($roles as $rol) {
@@ -46,7 +46,10 @@ $usuario = Usuario::obtenerUno($usuid);
                             </div>
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="basic-addon1">Password</span>
-                                <input type="text" class="form-control" name="usupassword" id="rolnombre" placeholder="Ingresa el password" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $usuario->usupassword ?>" required>
+                                <input type="password" class="form-control" name="usupassword" id="txtPassword" placeholder="Ingresa el password" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $usuario->usupassword ?>" required>
+                                <div class="input-group-append">
+                                    <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                </div>
                             </div>
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="basic-addon1">Nombre</span>
@@ -59,7 +62,7 @@ $usuario = Usuario::obtenerUno($usuid);
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="basic-addon1">Ciudad</span>
                                 <select name="ciuid" class="form-select form-select">
-                                <?php
+                                    <?php
                                     $ciudades = Ciudad::obtener();
                                     foreach ($ciudades as $ciudad) {
                                         if ($ciudad->ciuid == $usuario->ciuid) {
@@ -88,8 +91,8 @@ $usuario = Usuario::obtenerUno($usuid);
                             </div>
                         </div>
                         <div class="col ">
-                        <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button>
-                    </div>
+                            <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button>
+                        </div>
                     </div>
                 </div>
 
@@ -98,7 +101,19 @@ $usuario = Usuario::obtenerUno($usuid);
     </div>
 
 </div>
-
+<script type="text/javascript">
+    function mostrarPassword() {
+        var cambio = document.getElementById("txtPassword");
+        if (cambio.type == "password") {
+            cambio.type = "text";
+            $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+        } else {
+            cambio.type = "password";
+            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+        }
+    } 
+    </script>
 </body>
+    
 
-</html>
+    </html>
