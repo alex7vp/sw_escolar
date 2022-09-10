@@ -1,16 +1,18 @@
 <?php
 session_start();
-if ($_SESSION['rol'] != 1) {
+if ($_SESSION['rol'] != 4) {
     header("Location: 404.php");
 }
 include "conf.php";
 include "modelos/DetalleMateria.php";
 include "modelos/Materia.php";
 include "modelos/Curso.php";
+include "modelos/Usuario.php";
 require_once('layouts/layout.php');
 $detalles = DetalleMateria::obtener();
 $cursos = Curso::obtener();
 $materias = Materia::obtener();
+$usuarios = Usuario::porDocentes();
 ?>
 
 <div class="card container mt-3 shadow">
@@ -48,6 +50,16 @@ $materias = Materia::obtener();
                                     <?php } ?>
                                 </select>
                             </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon1">Docente</span>
+                                <select name="usuid" class="form-select form-select">
+                                    <?php
+                                    foreach ($usuarios as $usuario) { ?>
+                                        <option value="<?php echo $usuario->usuid ?>"><?php echo $usuario->usunombre." ".$usuario->usuapellido ?></option>
+
+                                    <?php } ?>
+                                </select>
+                            </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">Codigo</span>
                                 <input type="text" class="form-control" name="detmatcodigo" placeholder="Ingresa un código a la materia" aria-label="Username" aria-describedby="basic-addon1">
@@ -69,6 +81,7 @@ $materias = Materia::obtener();
                                 <th>Grado/Curso</th>
                                 <th>Materia</th>
                                 <th>Area</th>
+                                <th>Docente</th>
                                 <th style="width: 30px;"></th>
                                 <th style="width: 30px;"></th>
                             </tr>
@@ -81,6 +94,7 @@ $materias = Materia::obtener();
                                     <td><?php echo $detalle->curnombre ?></td>
                                     <td><?php echo $detalle->matnombre ?></td>
                                     <td><?php echo $detalle->arenombre ?></td>
+                                    <td><?php echo $detalle->usunombre." ".$detalle->usuapellido ?></td>
                                     <td>
                                         <a href="editar_detallemateria.php?detmatid=<?php echo $detalle->detmatid ?>"><img src="img/editar.png" alt="" class="btn btn-success shadow-sm">
                                         </a>

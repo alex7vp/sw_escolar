@@ -21,6 +21,9 @@
 	if ($_SESSION['rol']==3) {
 		require_once('home_estudiante.php');
 	}
+	if ($_SESSION['rol']==4) {
+		require_once('home_coordinador.php');
+	}
         
         ?>
  

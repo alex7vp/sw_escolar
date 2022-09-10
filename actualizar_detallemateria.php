@@ -8,8 +8,9 @@ include "conf.php";
     $detmatcodigo=$_POST["detmatcodigo"];
     $curid= $_POST["curid"];
     $matid= $_POST["matid"];
+    $usuid= $_POST["usuid"];
     $detallemateriaupdate = new DetalleMateria($curid, $matid, $detmatcodigo, $_POST["detmatid"]);
-    $detallemateriaupdate->actualizar($curid, $matid, $detmatcodigo, $detmatid);
+    $detallemateriaupdate->actualizar($curid, $matid, $usuid, $detmatcodigo, $detmatid);
     ?>
 <div class="card position-absolute bottom-50 end-50 shadow rounded">
     <div class="card-header"><img src="img/checked.png" alt=""> Transacción exitosa</div>

@@ -11,13 +11,16 @@
     <title>Sistema de Gestión Escolar</title>
     <link href="<?php if (isset($_SESSION['rol'])) {
         if ($_SESSION['rol']==1) {
-            echo "/sw_escolar/css/style.css";
+            echo "css/style.css";
         }
         if ($_SESSION['rol']==2) {
-            echo "/sw_escolar/css/docente.css";;
-        }
+            echo "css/docente.css";;
+        }        
         if ($_SESSION['rol']==3) {
-            echo "/sw_escolar/css/estudiante.css";;
+            echo "css/estudiante.css";
+        }
+        if ($_SESSION['rol']==4) {
+            echo "/sw_escolar/css/coordinador.css";
         }
     }else {
         echo "/sw_escolar/css/style.css";

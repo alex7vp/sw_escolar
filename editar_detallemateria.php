@@ -4,6 +4,7 @@ include "conf.php";
 include "modelos/Materia.php";
 include "modelos/Curso.php";
 include "modelos/DetalleMateria.php";
+include "modelos/Usuario.php";
 //carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
 $detmatid = $_GET["detmatid"];
@@ -25,7 +26,7 @@ $detalles = DetalleMateria::obtenerUno($detmatid);
                     </div>
                     <div class="col ">
                         <div class="input-group mb-2">
-                            <span class="input-group-text" id="basic-addon1">Ciudad</span>
+                            <span class="input-group-text" id="basic-addon1">Grado/Curso</span>
                             <select name="curid" class="form-select form-select">
                                 <?php
                                 $cursos = Curso::obtener();
@@ -43,7 +44,7 @@ $detalles = DetalleMateria::obtenerUno($detmatid);
                             </select>
                         </div>
                         <div class="input-group mb-2">
-                            <span class="input-group-text" id="basic-addon1">Ciudad</span>
+                            <span class="input-group-text" id="basic-addon1">Materia</span>
                             <select name="matid" class="form-select form-select">
                                 <?php
                                 $materias = Materia::obtener();
@@ -62,6 +63,24 @@ $detalles = DetalleMateria::obtenerUno($detmatid);
                         </div>
                         <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1">Materia</span>
+                            <select name="usuid" class="form-select form-select">
+                                <?php
+                                $usuarios = Usuario::porDocentes();
+                                foreach ($usuarios as $usuario) {
+                                    if ($usuario->usuid == $detalles->usuid) {
+                                ?>
+
+                                        <option value="<?php echo $usuario->usuid ?>" selected><?php echo $usuario->usunombre." ".$usuario->usuapellido ?></option>
+
+                                    <?php } else { ?>
+                                        <option value="<?php echo $usuario->usuid ?>"><?php echo $usuario->usunombre." ".$usuario->usuapellido ?></option>
+                                <?php
+                                    }
+                                } ?>
+                            </select>
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1">Cod. Materia</span>
                             <input type="text" class="form-control" id="arenombre" name="detmatcodigo" value="<?php echo $detalles->detmatcodigo ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1">
                         </div>
                     </div>

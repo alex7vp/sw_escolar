@@ -1,7 +1,7 @@
 body {
     background: #abbaab;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right,#aaff00, #93ebfd, #cee2ec);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f6ff00, #93ebfd, #cee2ec); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */       
+    background: -webkit-linear-gradient(to right, #80807c, #c5dbdb, #8d8d89);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #80807c, #c5dbdb, #8d8d89); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */       
 }
 
 .txt {
@@ -17,13 +17,9 @@ body {
 nav{
     background: #0F2027;  /* fallback for old browsers */
     color: white;
-background: -webkit-linear-gradient(to right, #2C5364, #194a5a, #048cc7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2C5364, #194a5a, #048cc7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(to right, #da2e2e, #c0361b, #a60e0e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #da2e2e, #c64225, #a60e0e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}body {
-    background: #abbaab;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right,#cee2ec, #93ebfd, #cee2ec);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #cee2ec, #93ebfd, #cee2ec); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */       
 }
 
 .txt {
@@ -36,13 +32,7 @@ background: linear-gradient(to right, #2C5364, #194a5a, #048cc7); /* W3C, IE 10+
   -webkit-background-clip: text;
   color: transparent;
 }
-nav{
-    background: #0F2027;  /* fallback for old browsers */
-    color: white;
-background: -webkit-linear-gradient(to right, #2C5364, #194a5a, #048cc7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2C5364, #194a5a, #048cc7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}
          
 .btn-grad1 {
   background-image: linear-gradient(to right, #0724ff 0%, #26a0da  51%, #0015ff  100%);

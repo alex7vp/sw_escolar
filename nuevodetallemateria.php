@@ -5,8 +5,9 @@ include "modelos/DetalleMateria.php";
 require_once('layouts/layout.php');
 $curid=$_POST["curid"];
 $matid=$_POST["matid"];
+$usuid=$_POST["usuid"];
 $detmatcodigo=$_POST["detmatcodigo"];
-$detallemateria = new DetalleMateria($curid,$matid,$detmatcodigo);
+$detallemateria = new DetalleMateria($curid,$matid,$usuid,$detmatcodigo);
 $detallemateria->guardar();
 ?>
 <div class="card position-absolute bottom-50 end-50 shadow rounded">

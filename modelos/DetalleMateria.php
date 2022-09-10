@@ -1,12 +1,13 @@
 <?php
 class DetalleMateria
 {
-    private $curid, $matid, $detmatcodigo, $detmatid;
+    private $curid, $matid, $usuid, $detmatcodigo, $detmatid;
 
-    public function __construct($curid, $matid, $detmatcodigo, $detmatid = null)
+    public function __construct($curid, $matid, $usuid, $detmatcodigo, $detmatid = null)
     {
         $this->curid = $curid;
         $this->matid = $matid;
+        $this->usuid = $usuid;
         $this->detmatcodigo = $detmatcodigo;
         if ($detmatid) {
             $this->detmatid = $detmatid;
@@ -17,21 +18,22 @@ class DetalleMateria
     {
         global $conn;
         $sentencia = $conn->prepare("INSERT INTO detallematerias
-            (curid, matid, detmatcodigo)
+            (curid, matid, usuid, detmatcodigo)
                 VALUES
-                (?,?,?)");
+                (?,?,?,?)");
         $sentencia->bindParam(1,$this->curid);
-        $sentencia->bindParam(2,$this->matid);    
-        $sentencia->bindParam(3,$this->detmatcodigo);      
+        $sentencia->bindParam(2,$this->matid);
+        $sentencia->bindParam(3,$this->usuid);       
+        $sentencia->bindParam(4,$this->detmatcodigo);      
         $sentencia->execute();
     }
 
     public static function obtener()
     {
         global $conn;
-        $sentencia = $conn->query("SELECT detallematerias.*, cursos.*, materias.*, areas.*
-        FROM detallematerias, cursos, materias, areas
-        WHERE detallematerias.curid= cursos.curid AND detallematerias.matid= materias.matid AND materias.areid= areas.areid");
+        $sentencia = $conn->query("SELECT detallematerias.*, cursos.*, materias.*, areas.*, usuarios.*
+        FROM detallematerias, cursos, materias, areas, usuarios
+        WHERE detallematerias.curid= cursos.curid AND detallematerias.matid= materias.matid AND materias.areid= areas.areid AND detallematerias.usuid= usuarios.usuid ");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
     public static function obtenerLimite($upset)
@@ -49,7 +51,7 @@ class DetalleMateria
         $registros->execute(array(":detmatid" => $detmatid));
         return $registros = $registros->fetch(PDO::FETCH_OBJ);
     }
-    public static function porProvincias($curid)
+    public static function porMaterias($curid)
     {        
         global $conn;
         $sentencia = "SELECT detmatid, matid, ciudades.curid, pronombre 
@@ -61,12 +63,12 @@ class DetalleMateria
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ);  
     }
     
-    public function actualizar($curid, $matid, $detmatcodigo, $detmatid)
+    public function actualizar($curid, $matid, $usuid, $detmatcodigo, $detmatid)
     {
         global $conn;        
-        $sentencia = 'UPDATE detallematerias SET matid=:matid , curid=:curid, detmatcodigo=:detmatcodigo WHERE detmatid=:detmatid ';
+        $sentencia = 'UPDATE detallematerias SET matid=:matid , curid=:curid,  usuid=:usuid, detmatcodigo=:detmatcodigo WHERE detmatid=:detmatid ';
         $registros = $conn->prepare( $sentencia );     
-        $registros->execute( array(":curid" => $curid,":matid" => $matid, ":detmatcodigo"=>$detmatcodigo ,":detmatid" => $detmatid) ); 
+        $registros->execute( array(":curid" => $curid,":matid" => $matid, ":usuid" => $usuid, ":detmatcodigo"=>$detmatcodigo ,":detmatid" => $detmatid) ); 
         return $registros = $registros->fetch( PDO::FETCH_OBJ );       
     }
 
