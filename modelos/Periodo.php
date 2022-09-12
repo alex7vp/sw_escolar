@@ -28,12 +28,7 @@ class Periodo
         $sentencia = $conn->query("SELECT * from periodos ORDER BY perid ");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    public static function obtenerLimite($upset)
-    {
-        global $conn;
-        $sentencia = $conn->query("SELECT * from periodos LIMIT 5 OFFSET " . $upset);
-        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }
+
     public static function obtenerUno($perid)
     {
         global $conn;

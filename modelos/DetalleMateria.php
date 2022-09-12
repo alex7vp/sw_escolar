@@ -36,12 +36,7 @@ class DetalleMateria
         WHERE detallematerias.curid= cursos.curid AND detallematerias.matid= materias.matid AND materias.areid= areas.areid AND detallematerias.usuid= usuarios.usuid ");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    public static function obtenerLimite($upset)
-    {
-        global $conn;
-        $sentencia = $conn->query("SELECT * from provincias LIMIT 5 OFFSET ".$upset);
-        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }
+
     public static function obtenerUno($detmatid)
     {
         global $conn;
@@ -51,17 +46,18 @@ class DetalleMateria
         $registros->execute(array(":detmatid" => $detmatid));
         return $registros = $registros->fetch(PDO::FETCH_OBJ);
     }
-    public static function porMaterias($curid)
+    
+    public static function porUsuarios($usuid)
     {        
         global $conn;
-        $sentencia = "SELECT detmatid, matid, ciudades.curid, pronombre 
-        FROM ciudades, provincias
-        WHERE provincias.curid=ciudades.curid AND ciudades.curid= :curid
-        ORDER BY ciudades.curid";
+        $sentencia = "SELECT detallematerias.*, cursos.*, materias.*, areas.*
+        FROM detallematerias, cursos, materias, areas
+        WHERE detallematerias.curid= cursos.curid AND detallematerias.matid= materias.matid AND materias.areid= areas.areid AND detallematerias.usuid= :usuid";
         $registros = $conn->prepare( $sentencia ); 
-        $registros ->execute(array(":curid" => $curid));
-        return $resultado = $registros->fetchAll(PDO::FETCH_OBJ);  
+        $registros ->execute(array(":usuid" => $usuid));
+        return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
     }
+
     
     public function actualizar($curid, $matid, $usuid, $detmatcodigo, $detmatid)
     {

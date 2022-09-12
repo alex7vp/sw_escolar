@@ -28,12 +28,7 @@ class Rol
         $sentencia = $conn->query("SELECT * from roles ORDER BY rolid ");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    public static function obtenerLimite($upset)
-    {
-        global $conn;
-        $sentencia = $conn->query("SELECT * from roles LIMIT 5 OFFSET " . $upset);
-        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }
+
     public static function obtenerUno($rolid)
     {
         global $conn;

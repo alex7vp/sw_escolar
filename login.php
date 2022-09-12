@@ -14,6 +14,7 @@
                 $pasok= $login->usupassword;  
                 $nombre = $login->usunombre;
                 $apellido = $login->usuapellido;
+                $id=$login->usuid;
                 $usuok.$usuusuario;
                 $usupassword.$pasok;
                 
@@ -22,6 +23,7 @@
                     $_SESSION['usuario'] = $usuusuario;
                     $_SESSION['nombre'] = $nombre;
                     $_SESSION['apellido'] = $apellido;
+                    $_SESSION['id'] = $id;
                     header("Location: home.php");
                 }else{
                     header("Location: index.php");

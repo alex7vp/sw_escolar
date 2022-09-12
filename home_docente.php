@@ -6,14 +6,7 @@
         <div class="card-body">
             <div class="container text-center">
                 <div class="row">
-                    <div class="col">
-                        Ver Listado de Estudiantes
-                    </div>
-                    <div class="col">
-                        Registrar Calificaciones
-                    </div>
-                    <div class="col">
-                        Registrar Asistencia
+                    <div class="col mt-2"><a class="btn btn-dark" href="registro.php"><img src="img/usuarios.png" alt=""> <br> Registrar Asistencia <br>y Calificaciones</a>
                     </div>
                 </div>
             </div>

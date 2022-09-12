@@ -49,12 +49,7 @@ class Usuario
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
         echo "Ok";
     }
-    public static function obtenerLimite($upset)
-    {
-        global $conn;
-        $sentencia = $conn->query("SELECT * from roles LIMIT 5 OFFSET ".$upset);
-        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }
+
     public static function obtenerUno($usuid)
     {
         global $conn;
@@ -100,7 +95,6 @@ class Usuario
     public function actualizar($rolid, $usuusuario, $usupassword, $usunombre, $usuapellido, $ciuid, $usucedula, $usudireccion, $usutelefono, $usuid)
     {
         global $conn;        
-        //$sentencia = 'UPDATE usuarios SET rolid= ?, usuusuario=?, usupassword=?, usunombre=?, usuapellido=?, ciuid=?, usucedula=?, usudireccion=?, usutelefono=?  WHERE usuid=:usuid ';
         $sentencia = $conn->prepare( 'UPDATE usuarios SET rolid= ?, usuusuario=?, usupassword=?, usunombre=?, usuapellido=?, ciuid=?, usucedula=?, usudireccion=?, usutelefono=?  WHERE usuid=? ');     
         $sentencia->bindParam(1,$this->rolid);
         $sentencia->bindParam(2,$this->usuusuario); 

@@ -2,7 +2,7 @@
 
 $contraseña = "root";
 $usuario = "postgres";
-$nombreBaseDeDatos = "SAC";
+$nombreBaseDeDatos = "SAC_Prueba4";
 $rutaServidor = "localhost";
 $puerto = "5432";
 try {

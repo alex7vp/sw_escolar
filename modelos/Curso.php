@@ -30,12 +30,7 @@ class Curso
         ORDER BY curnombre");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    public static function obtenerLimite($upset)
-    {
-        global $conn;
-        $sentencia = $conn->query("SELECT * from paralelos LIMIT 5 OFFSET ".$upset);
-        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }
+
     public static function obtenerUno($curid)
     {
         global $conn;

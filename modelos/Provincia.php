@@ -27,15 +27,8 @@ class Provincia
         global $conn;
         $sentencia = $conn->query("SELECT * from provincias ORDER BY proid ");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        //$resultado = $mysqli->query("SELECT id, nombre FROM provincias");
-        //return $resultado->fetch_all(MYSQLI_ASSOC);
     }
-    public static function obtenerLimite($upset)
-    {
-        global $conn;
-        $sentencia = $conn->query("SELECT * from provincias LIMIT 5 OFFSET " . $upset);
-        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }
+
     public static function obtenerUno($proid)
     {
         global $conn;

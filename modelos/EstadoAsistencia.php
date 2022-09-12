@@ -28,12 +28,7 @@ class EstadoAsistencia
         $sentencia = $conn->query("SELECT * from estasistencias ORDER BY estasiid ");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    public static function obtenerLimite($upset)
-    {
-        global $conn;
-        $sentencia = $conn->query("SELECT * from estasistencias LIMIT 5 OFFSET " . $upset);
-        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }
+
     public static function obtenerUno($estasiid)
     {
         global $conn;

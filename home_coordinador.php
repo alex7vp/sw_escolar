@@ -10,6 +10,7 @@
                         <div class="col mt-2"><a class="btn btn-dark" href="usuarios.php"><img src="img/usuarios.png" alt=""> <br> Usuarios</a>
                         </div>
                         <div class="col mt-2"><a class="btn btn-dark" href="detallematerias.php"><img src="img/materias.png" alt=""><br>Detalle de Materias</a></div>
+                        <div class="col mt-2"><a class="btn btn-dark" href="rmatriculas.php"><img src="img/materias.png" alt=""><br>Matrícula</a></div>
                     </div>
                 </div>
             </div>
