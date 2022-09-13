@@ -33,7 +33,7 @@ $detalles = DetalleMateria::porUsuarios($usuid);
                                     <td><?php echo $provincia->matnombre ?></td>
                                     <td><?php echo $provincia->detmatcodigo ?></td>
                                     <td>
-                                        <a class="btn btn-warning" href="calificaciones.php?detmatid=<?php echo $provincia->detmatid ?>">Calificaciones
+                                        <a class="btn btn-warning" href="calificaciones.php?detmatid=<?php echo $provincia->detmatid ?>" >Calificaciones
                                         </a>
                                     </td>
                                     <td>
