@@ -33,7 +33,7 @@ $detalles = Asistencia::porMateria($_GET["detmatid"]);
                                 <td><?php echo $detalle->resasiinjustificadas ?> </td>
                                 <td><?php echo $detalle->resasiatrasos ?> </td>
                                 <td>
-                                    <a href="nuevaasistencia.php?resasiid=<?php echo $detalle->resasiid?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
+                                    <a href="nuevaasistencia.php?resasiid=<?php echo $detalle->resasiid?>&detmatid=<?php echo $_GET["detmatid"];?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                 </td>
                             </tr>
                         <?php } ?>
