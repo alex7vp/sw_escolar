@@ -4,8 +4,7 @@ include "conf.php";
 include "modelos/Asistencia.php";
 //carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
-$detalles = Asistencia::porMateria($_GET["detmatid"]);
-$id=$_GET["detmatid"];
+$detalles = Asistencia::porUsuario($_SESSION['id']);
 ?>
 
 
@@ -19,23 +18,19 @@ $id=$_GET["detmatid"];
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
+                            <th>Materia</th>
                             <th style="width: 10px;">Justificadas</th>
                             <th style="width: 10px;">Injustificadas</th>
                             <th style="width: 10px;">Atrasos</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($detalles as $detalle) { ?>
                             <tr>
-                                <td><?php echo $detalle->usunombre . " " . $detalle->usuapellido ?> </td>
+                                <td><?php echo $detalle->matnombre ?> </td>
                                 <td><?php echo $detalle->resasijustificadas ?> </td>
                                 <td><?php echo $detalle->resasiinjustificadas ?> </td>
-                                <td><?php echo $detalle->resasiatrasos ?> </td>
-                                <td>
-                                    <a href="nuevaasistencia.php?resasiid=<?php echo $detalle->resasiid?>&detmatid=<?php echo $_GET["detmatid"];?>" class="btn btn-outline-success btn-sm shadow-sm"><img src="img/mas.png" alt="" class="btn_img"> Agregar Novedad</a>
-                                </td>
+                                <td><?php echo $detalle->resasiatrasos ?> </td>                                
                             </tr>
                         <?php } ?>
 
@@ -46,7 +41,7 @@ $id=$_GET["detmatid"];
             </div>
         </div>
         <div class="row mt-2">
-            <div class="col"><a href="asistencia_pdf.php?detmatid=<?php echo $id ?>" class="btn btn-info">Descargar PDF</a></div>
+            <div class="col"><a href="reporteasistencias_pdf.php" class="btn btn-info">Descargar PDF</a></div>
             <div class="col"><a href="home.php" class="btn btn-danger">Inicio</a></div>    
             <div class="col"></div>                        
             </div>

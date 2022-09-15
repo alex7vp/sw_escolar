@@ -66,8 +66,13 @@ $id = $_GET["detmatid"];
                     </tbody>
 
                 </table>
-                <a href="calificaciones_pdf.php?detmatid=<?php echo $id ?>" class="btn btn-info">Descargar PDF</a>
             </div>
+            <div class="row mt-2">
+            <div class="col"><a href="calificaciones_pdf.php?detmatid=<?php echo $id ?>" class="btn btn-info">Descargar PDF</a></div>
+            <div class="col"><a href="home.php" class="btn btn-danger">Inicio</a></div>    
+            <div class="col"></div>                        
+            </div>
+            
         </div>
     </div>
 </div>

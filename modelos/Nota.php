@@ -59,12 +59,22 @@ class Nota
     public static function porMateria($detmatid)
     {        
         global $conn;
-        $sentencia = "SELECT  notas.*, rmatriculacion.*, usuarios.*
-        FROM notas, rmatriculacion, usuarios
-        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND notas.detmatid=:detmatid";
+        $sentencia = "SELECT  notas.*, rmatriculacion.*, usuarios.*,materias.matnombre
+        FROM notas, rmatriculacion, usuarios,materias,detallematerias
+        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND detallematerias.matid=materias.matid  AND detallematerias.detmatid=notas.detmatid AND notas.detmatid=:detmatid";
         $registros = $conn->prepare( $sentencia ); 
         $registros ->execute(array(":detmatid" => $detmatid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
+    }
+    public static function Materia($detmatid)
+    {        
+        global $conn;
+        $sentencia = "SELECT  notas.*, rmatriculacion.*, usuarios.*,materias.matnombre
+        FROM notas, rmatriculacion, usuarios,materias,detallematerias
+        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND detallematerias.matid=materias.matid  AND detallematerias.detmatid=notas.detmatid AND notas.detmatid=:detmatid";
+        $registros = $conn->prepare( $sentencia ); 
+        $registros ->execute(array(":detmatid" => $detmatid));
+        return $resultado = $registros->fetch(PDO::FETCH_OBJ); 
     }
 
     public static function porUsuario($usuid)
@@ -72,7 +82,8 @@ class Nota
         global $conn;
         $sentencia = "SELECT  notas.*, rmatriculacion.*, usuarios.*,materias.matnombre
         FROM notas, rmatriculacion, usuarios,materias,detallematerias
-        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND detallematerias.matid=materias.matid  AND detallematerias.detmatid=notas.detmatid  AND rmatriculacion.usuid=:usuid";
+        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND detallematerias.matid=materias.matid  AND detallematerias.detmatid=notas.detmatid  AND rmatriculacion.usuid=:usuid
+        ORDER BY usuarios.usunombre";
         $registros = $conn->prepare( $sentencia ); 
         $registros ->execute(array(":usuid" => $usuid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
@@ -84,17 +95,23 @@ class Nota
         $nota1= number_format($notparcial1, 2);  
         $nota2= number_format($notparcial2, 2); 
         $porcentaje1= (($nota1+$nota2)* 0.8/2);
+        $porcentaje1formato= number_format($porcentaje1, 2); 
         $evaluacion1= number_format($notevaluacion1, 2); 
         $porcentaje2= ($evaluacion1)*0.2;
+        $porcentaje2formato= number_format($porcentaje2, 2); 
         $promedio1= $porcentaje1+$porcentaje2; 
+        $promedio1formato= number_format($promedio1, 2); 
         $nota3= number_format($notparcial3, 2); 
         $nota4= number_format($notparcial4, 2);
         $porcentaje3= (($nota3+$nota4)*0.8/2);
+        $porcentaje3formato= number_format($porcentaje3, 2);
         $evaluacion2= number_format($notevaluacion2, 2); 
-        $porcentaje4= ($evaluacion2)*0.2;        
+        $porcentaje4= ($evaluacion2)*0.2; 
+        $porcentaje4formato= number_format($porcentaje4, 2);       
         $promedio2= $porcentaje3+$porcentaje4; 
         try {
-            $final= ($promedio1+$promedio2)/2;   
+            $final= ($promedio1+$promedio2)/2;  
+            $finalformato= number_format($final, 2);  
         } catch (\Throwable $th) {
             $final= 0; 
         }  
@@ -102,7 +119,7 @@ class Nota
         $sentencia = 'UPDATE notas 
         SET notparcial1=:notparcial1, notparcial2=:notparcial2, notporcentaje1=:porcentaje1, notevaluacion1=:notevaluacion1, notporcentaje2=:notporcentaje2, notpromedio1=:notpromedio1, notparcial3=:notparcial3, notparcial4=:notparcial4, notporcentaje3=:porcentaje3, notevaluacion2=:notevaluacion2, notporcentaje4=:notporcentaje4, notpromedio2=:notpromedio2, notprofinal=:notprofinal WHERE notid=:notid ';
         $registros = $conn->prepare( $sentencia );     
-        $registros->execute( array(":notparcial1" => $nota1,":notparcial2" => $nota2,":porcentaje1" => $porcentaje1,":notevaluacion1" => $evaluacion1,":notporcentaje2" => $porcentaje2, ":notpromedio1" => $promedio1, ":notparcial3" => $nota3,":notparcial4" => $nota4,":porcentaje3" => $porcentaje3,":notevaluacion2" => $evaluacion2,":notporcentaje4" => $porcentaje4, ":notpromedio2" => $promedio2, ":notpromedio2" => $promedio2, ":notprofinal" => $final, ":notid" => $notid) ); 
+        $registros->execute( array(":notparcial1" => $nota1,":notparcial2" => $nota2,":porcentaje1" => $porcentaje1formato,":notevaluacion1" => $evaluacion1,":notporcentaje2" => $porcentaje2formato, ":notpromedio1" => $promedio1formato, ":notparcial3" => $nota3,":notparcial4" => $nota4,":porcentaje3" => $porcentaje3formato,":notevaluacion2" => $evaluacion2,":notporcentaje4" => $porcentaje4formato, ":notpromedio2" => $promedio2, ":notpromedio2" => $promedio2, ":notprofinal" => $finalformato, ":notid" => $notid) ); 
         return $registros = $registros->fetch( PDO::FETCH_OBJ );       
     }
 

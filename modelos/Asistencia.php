@@ -50,11 +50,31 @@ class Asistencia
     public static function porMateria($detmatid)
     {        
         global $conn;
-        $sentencia = "SELECT  resasistencia.*, rmatriculacion.*, usuarios.*
-        FROM resasistencia, rmatriculacion, usuarios
-        WHERE resasistencia.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND resasistencia.detmatid=:detmatid";
+        $sentencia = "SELECT  resasistencia.*, rmatriculacion.*, usuarios.*, materias.matnombre
+        FROM resasistencia, rmatriculacion, usuarios, detallematerias, materias
+        WHERE resasistencia.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid  AND detallematerias.detmatid=resasistencia.detmatid  AND detallematerias.matid=materias.matid AND resasistencia.detmatid=:detmatid";
         $registros = $conn->prepare( $sentencia ); 
         $registros ->execute(array(":detmatid" => $detmatid));
+        return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
+    }
+    public static function Materia($detmatid)
+    {        
+        global $conn;
+        $sentencia = "SELECT  resasistencia.*, rmatriculacion.*, usuarios.*, materias.matnombre
+        FROM resasistencia, rmatriculacion, usuarios, detallematerias, materias
+        WHERE resasistencia.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid  AND detallematerias.detmatid=resasistencia.detmatid  AND detallematerias.matid=materias.matid AND resasistencia.detmatid=:detmatid";
+        $registros = $conn->prepare( $sentencia ); 
+        $registros ->execute(array(":detmatid" => $detmatid));
+        return $resultado = $registros->fetch(PDO::FETCH_OBJ); 
+    }
+    public static function porUsuario($usuid)
+    {        
+        global $conn;
+        $sentencia = "SELECT  resasistencia.*, rmatriculacion.*, usuarios.*, materias.matnombre
+        FROM resasistencia, rmatriculacion, usuarios, detallematerias, materias
+        WHERE resasistencia.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid  AND detallematerias.detmatid=resasistencia.detmatid  AND detallematerias.matid=materias.matid AND usuarios.usuid=:usuid";
+        $registros = $conn->prepare( $sentencia ); 
+        $registros ->execute(array(":usuid" => $usuid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
     }
     

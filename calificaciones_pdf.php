@@ -31,9 +31,12 @@ $detalles = Nota::porMateria($_GET["detmatid"]);
             </div>
         </center>
         <div class="card-header">
-            <h3>Registro de Calificaciones - <?php
+            <h2>Registro de Calificaciones - <?php
                                                 $materias = DetalleMateria::porMaterias($_GET["detmatid"]);
-                                                echo $materias->detmatcodigo ?></h3>
+                                                echo $materias->detmatcodigo ?></h2>
+            <h3>Docente: <?php echo $_SESSION["nombre"] . " " . $_SESSION["apellido"] ?></h3>
+            
+            <h3>Materia: <?php echo $materias->matnombre ?> </h3>
         </div>
         <div>
             <div>
@@ -42,20 +45,20 @@ $detalles = Nota::porMateria($_GET["detmatid"]);
                         <table border="2px solid gray">
                             <thead>
                                 <tr>
-                                    <th style="width: 40px; text-align: center;">Nombre</th>
+                                    <th bgcolor="#F0ECE5" style="width: 40px; text-align: center;">Nombre</th>
                                     <th style="width: 40px; text-align: center;">P1</th>
                                     <th style="width: 40px; text-align: center;">P2</th>
                                     <th style="width: 40px; text-align: center;">80%</th>
                                     <th style="width: 40px; text-align: center;">Ev.</th>
                                     <th style="width: 40px; text-align: center;">20%</th>
-                                    <th style="width: 40px; text-align: center;">Prom.</th>
+                                    <th bgcolor="#F0ECE5" style="width: 40px; text-align: center;">Prom.</th>
                                     <th style="width: 40px; text-align: center;">P3</th>
                                     <th style="width: 40px; text-align: center;">P4</th>
                                     <th style="width: 40px; text-align: center;">80%</th>
                                     <th style="width: 40px; text-align: center;">Ev.</th>
                                     <th style="width: 40px; text-align: center;">20%</th>
-                                    <th style="width: 40px; text-align: center;">Prom</th>
-                                    <th>Prom. Final</th>
+                                    <th bgcolor="#F0ECE5" style="width: 40px; text-align: center;">Prom</th>
+                                    <th bgcolor="#D5C2F7">Prom. Final</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,9 +77,10 @@ $detalles = Nota::porMateria($_GET["detmatid"]);
                                         <td> <?php echo $detalle->notevaluacion2 ?></td>
                                         <td> <?php echo $detalle->notporcentaje4 ?></td>
                                         <td bgcolor="#F0ECE5"> <?php echo $detalle->notpromedio2 ?></td>
-                                        <td bgcolor="#F0ECE5"> <?php echo $detalle->notprofinal ?></td>
+                                        <td bgcolor="#D5C2F7"> <?php echo $detalle->notprofinal ?></td>
                                     </tr>
                                 <?php } ?>
+                                </tr>
                             </tbody>
                         </table>
                     </center>
@@ -106,5 +110,5 @@ $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'landscape');
 
 $dompdf->render();
-$dompdf->stream("registrodenotas.pdf", array("Attachment" => TRUE));
+$dompdf->stream($materias->detmatcodigo, array("Attachment" => TRUE));
 ?>
