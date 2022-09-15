@@ -7,7 +7,7 @@
  <br>
  <center>
  <div class="container">
-	<h1>Bienvenid@ <?php echo $_SESSION["nombre"] ?>...</h1>
+	<h1 class="txt">Bienvenid@ <?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"] ?></h1>
     
  <img src="img/logo.svg" style="width: 150px;" alt=""><br><br>
  </div>

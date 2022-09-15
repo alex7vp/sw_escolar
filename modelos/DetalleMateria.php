@@ -46,6 +46,17 @@ class DetalleMateria
         $registros->execute(array(":detmatid" => $detmatid));
         return $registros = $registros->fetch(PDO::FETCH_OBJ);
     }
+
+    public static function porMaterias($detmatid)
+    {        
+        global $conn;
+        $sentencia = "SELECT detallematerias.*, cursos.*, materias.*, areas.*
+        FROM detallematerias, cursos, materias, areas
+        WHERE detallematerias.curid= cursos.curid AND detallematerias.matid= materias.matid AND materias.areid= areas.areid AND detallematerias.detmatid= :detmatid";
+        $registros = $conn->prepare( $sentencia ); 
+        $registros ->execute(array(":detmatid" => $detmatid));
+        return $resultado = $registros->fetch(PDO::FETCH_OBJ); 
+    }
     
     public static function porUsuarios($usuid)
     {        

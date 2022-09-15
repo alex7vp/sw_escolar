@@ -5,6 +5,7 @@ include "modelos/Nota.php";
 //carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
 $detalles = Nota::porMateria($_GET["detmatid"]);
+$id = $_GET["detmatid"];
 ?>
 
 
@@ -38,26 +39,26 @@ $detalles = Nota::porMateria($_GET["detmatid"]);
                     <tbody>
                         <?php foreach ($detalles as $detalle) { ?>
                             <tr>
-                                <form action="actualizar_nota.php" id="agrCiudad" class="form-control" method="POST">                                
-                                <td> <input  style="border: 0;" type="text" max="10" value="<?php echo $detalle->usunombre." ".$detalle->usuapellido ?>" disabled></td>
-                                <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial1" max="10" value="<?php echo $detalle->notparcial1 ?>"></td>
-                                <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial2" max="10" value="<?php echo $detalle->notparcial2 ?>"></td>
-                                <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje1 ?>" disabled></td>
-                                <td> <input style="border: 0;" size="1" type="text" name="txt_Evaluacion1" max="10" value="<?php echo $detalle->notevaluacion1 ?>"></td>
-                                <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje2 ?>" disabled></td>
-                                <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notpromedio1 ?>" disabled></td>
-                                <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial3" max="10" value="<?php echo $detalle->notparcial3 ?>"></td>
-                                <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial4" max="10" value="<?php echo $detalle->notparcial4 ?>"></td>
-                                <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje3 ?>" disabled></td>
-                                <td> <input style="border: 0;" size="1" type="text" name="txt_Evaluacion2" max="10" value="<?php echo $detalle->notevaluacion2 ?>"></td>
-                                <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje4 ?>" disabled></td>
-                                <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notpromedio2 ?>" disabled></td>
-                                <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notprofinal ?>" disabled></td>
-                                <input size="2" type="hidden" name="detmatid" value="<?php echo $detalle->detmatid ?>">
-                                <input size="2" type="hidden" name="txtId" value="<?php echo $detalle->notid ?>">
-                                <td>
-                                    <button class="btn btn-outline-success btn-sm" type="submit"><img src="img/updated.png"></button>
-                                </td>
+                                <form action="actualizar_nota.php" id="agrCiudad" class="form-control" method="POST">
+                                    <td> <input style="border: 0;" type="text" max="10" value="<?php echo $detalle->usunombre . " " . $detalle->usuapellido ?>" disabled></td>
+                                    <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial1" max="10" value="<?php echo $detalle->notparcial1 ?>"></td>
+                                    <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial2" max="10" value="<?php echo $detalle->notparcial2 ?>"></td>
+                                    <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje1 ?>" disabled></td>
+                                    <td> <input style="border: 0;" size="1" type="text" name="txt_Evaluacion1" max="10" value="<?php echo $detalle->notevaluacion1 ?>"></td>
+                                    <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje2 ?>" disabled></td>
+                                    <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notpromedio1 ?>" disabled></td>
+                                    <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial3" max="10" value="<?php echo $detalle->notparcial3 ?>"></td>
+                                    <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial4" max="10" value="<?php echo $detalle->notparcial4 ?>"></td>
+                                    <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje3 ?>" disabled></td>
+                                    <td> <input style="border: 0;" size="1" type="text" name="txt_Evaluacion2" max="10" value="<?php echo $detalle->notevaluacion2 ?>"></td>
+                                    <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje4 ?>" disabled></td>
+                                    <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notpromedio2 ?>" disabled></td>
+                                    <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notprofinal ?>" disabled></td>
+                                    <input size="2" type="hidden" name="detmatid" value="<?php echo $detalle->detmatid ?>">
+                                    <input size="2" type="hidden" name="txtId" value="<?php echo $detalle->notid ?>">
+                                    <td>
+                                        <button class="btn btn-outline-success btn-sm" type="submit"><img src="img/updated.png"></button>
+                                    </td>
                                 </form>
                             </tr>
                         <?php } ?>
@@ -65,7 +66,7 @@ $detalles = Nota::porMateria($_GET["detmatid"]);
                     </tbody>
 
                 </table>
-
+                <a href="calificaciones_pdf.php?detmatid=<?php echo $id ?>" class="btn btn-info">Descargar PDF</a>
             </div>
         </div>
     </div>

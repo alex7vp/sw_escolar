@@ -66,6 +66,17 @@ class Nota
         $registros ->execute(array(":detmatid" => $detmatid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
     }
+
+    public static function porUsuario($usuid)
+    {        
+        global $conn;
+        $sentencia = "SELECT  notas.*, rmatriculacion.*, usuarios.*,materias.matnombre
+        FROM notas, rmatriculacion, usuarios,materias,detallematerias
+        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND detallematerias.matid=materias.matid  AND detallematerias.detmatid=notas.detmatid  AND rmatriculacion.usuid=:usuid";
+        $registros = $conn->prepare( $sentencia ); 
+        $registros ->execute(array(":usuid" => $usuid));
+        return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
+    }
     
     public function actualizar($notparcial1, $notparcial2, $notevaluacion1, $notparcial3, $notparcial4 ,$notevaluacion2,$notid)
     {
