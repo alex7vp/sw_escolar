@@ -54,7 +54,7 @@ $provincias = Provincia::obtener();
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="eliminar_provincia.php?proid=<?php echo $provincia->proid ?>"><img src="img/eliminar.png" alt="" class="btn btn-danger shadow-sm"></a>
+                                        <a class="alert alert-info" onclick="return confirm('Esta seguro que desea eliminar la provincia')" href="eliminar_provincia.php?proid=<?php echo $provincia->proid ?>"><img src="img/eliminar.png" alt="" class="btn btn-danger shadow-sm"></a>
                                     </td>
                                 </tr>
                             <?php } ?>

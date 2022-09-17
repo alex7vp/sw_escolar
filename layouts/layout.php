@@ -62,16 +62,20 @@
 <body>
     <header>
         <?php
-        require_once('header.php');
+        if ($_SESSION['rol']==1) {
+            $navbar= "header.php";
+        }
+        if ($_SESSION['rol']==2) {
+            $navbar= "headerdocente.php";;
+        }        
+        if ($_SESSION['rol']==3) {
+            $navbar= "headerestudiante.php";
+        }
+        if ($_SESSION['rol']==4) {
+            $navbar= "headercoordinador.php";
+        }
+        require_once($navbar);
         ?>
     </header>
 
-    <section>
-        <div class="container">
-            <?php
-            // carga el archivo routing.php para direccionar a la página .php que se incrustará entre la header y el footer
-            //require_once('routing.php');
-            ?>
-
-        </div>
-    </section>
+    

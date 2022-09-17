@@ -149,7 +149,7 @@ if (!isset($_SESSION['rol'])) {
                                         <a href="editar_usuario.php?usuid=<?php echo $usuario->usuid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
                                     <td>
-                                        <a href="eliminar_usuario.php?rolid=<?php echo $usuario->usuid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                        <a onclick="return confirm('Esta seguro que desea eliminar al usuario del sistema')" href="eliminar_usuario.php?rolid=<?php echo $usuario->usuid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -211,7 +211,7 @@ if (!isset($_SESSION['rol'])) {
                                             <a href="editar_usuario.php?usuid=<?php echo $usuario->usuid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                         </td>
                                         <td>
-                                            <a href="eliminar_usuario.php?usuid=<?php echo $usuario->usuid ?>" class="btn btn-danger shadow-sm" style="color: white;"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                            <a onclick="return confirm('Esta seguro que desea eliminar al usuario del sistema')"class="btn btn-danger shadow-sm" style="color: white;"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                         </td>
                                     </tr>
                                 <?php } ?>
