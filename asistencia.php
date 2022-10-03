@@ -20,6 +20,7 @@ $id=$_GET["detmatid"];
                     <thead>
                         <tr>
                             <th>Nombre</th>
+                            <th style="width: 10px;">Presentes/Puntual</th>
                             <th style="width: 10px;">Justificadas</th>
                             <th style="width: 10px;">Injustificadas</th>
                             <th style="width: 10px;">Atrasos</th>
@@ -30,6 +31,8 @@ $id=$_GET["detmatid"];
                         <?php foreach ($detalles as $detalle) { ?>
                             <tr>
                                 <td><?php echo $detalle->usunombre . " " . $detalle->usuapellido ?> </td>
+                                
+                                <td><?php echo $detalle->resasipresentes ?> </td>
                                 <td><?php echo $detalle->resasijustificadas ?> </td>
                                 <td><?php echo $detalle->resasiinjustificadas ?> </td>
                                 <td><?php echo $detalle->resasiatrasos ?> </td>

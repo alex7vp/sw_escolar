@@ -1,0 +1,80 @@
+body {
+    background: #abbaab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,#cee2ec, #93ebfd, #cee2ec);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #cee2ec, #93ebfd, #cee2ec); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+}
+
+.txt {
+    background: linear-gradient(rgb(25, 156, 171),rgb(136, 19, 99));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.txt:hover {
+    background: linear-gradient(rgb(87, 17, 59),rgb(94, 6, 66));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+nav{
+    background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #194a5a, #048cc7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #194a5a, #048cc7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+         
+.btn-grad1 {
+  background-image: linear-gradient(to right, #0724ff 0%, #26a0da  51%, #0015ff  100%);
+  margin: 3px;
+  padding: 8px 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 7px;
+  display: block;
+}
+
+.btn-grad1:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+         
+.btn-grad {
+  background-image: linear-gradient(to right, #0f9b0f 0%, #0f9b0f  51%, #2bff00, #2bff00 100%);
+  margin: 3px;
+  padding: 4px 8px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 7px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: white;
+  text-decoration: none;
+}
+
+.btn-grad2 {
+  background-image: linear-gradient(to right, #7f0f0f 0%, #7f0f0f  51%, #ff0000, #ff0000 100%);
+  margin: 3px;
+  padding: 4px 8px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 7px;
+}
+
+.btn-grad2:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: white;   
+  text-decoration: none;
+}
+

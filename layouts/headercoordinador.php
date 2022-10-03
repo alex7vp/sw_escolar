@@ -10,7 +10,7 @@
           <a class="nav-link active text-light" aria-current="page" href="home.php">Home</a>
         </li>
         <li class="nav-item text-light">
-          <a class="nav-link text-light" href="usuarios.php">Usuarios</a>
+          <a class="nav-link text-light" href="usuarioscoordinador.php">Usuarios</a>
         </li>  
         <li class="nav-item text-light">
           <a class="nav-link text-light" href="detallematerias.php">Detalle de Materias</a>

@@ -19,6 +19,7 @@ $detalles = Asistencia::porUsuario($_SESSION['id']);
                     <thead>
                         <tr>
                             <th>Materia</th>
+                            <th style="width: 10px;">Presente/Puntual</th>
                             <th style="width: 10px;">Justificadas</th>
                             <th style="width: 10px;">Injustificadas</th>
                             <th style="width: 10px;">Atrasos</th>
@@ -27,7 +28,8 @@ $detalles = Asistencia::porUsuario($_SESSION['id']);
                     <tbody>
                         <?php foreach ($detalles as $detalle) { ?>
                             <tr>
-                                <td><?php echo $detalle->matnombre ?> </td>
+                                <td><?php echo $detalle->matnombre ?> </td>                                
+                                <td><?php echo $detalle->resasipresentes ?> </td>
                                 <td><?php echo $detalle->resasijustificadas ?> </td>
                                 <td><?php echo $detalle->resasiinjustificadas ?> </td>
                                 <td><?php echo $detalle->resasiatrasos ?> </td>                                

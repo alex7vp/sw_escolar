@@ -27,12 +27,7 @@
             Administrativas
           </a>
           <ul class="dropdown-menu text-light">
-            <li><a class="dropdown-item" href="roles.php">Rol</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>            
-            <li><a class="dropdown-item" href="periodos.php">Períodos Lectivos</a></li>
-            <li><a class="dropdown-item" href="estadoasistencia.php">Estados de Asistencia</a></li>
+            <li><a class="dropdown-item" href="roles.php">Rol</a></li>                       
           </ul>
         </li>
         <li class="nav-item dropdown text-light">

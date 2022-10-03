@@ -33,7 +33,7 @@ class DetalleMateria
         global $conn;
         $sentencia = $conn->query("SELECT detallematerias.*, cursos.*, materias.*, areas.*, usuarios.*
         FROM detallematerias, cursos, materias, areas, usuarios
-        WHERE detallematerias.curid= cursos.curid AND detallematerias.matid= materias.matid AND materias.areid= areas.areid AND detallematerias.usuid= usuarios.usuid ");
+        WHERE detallematerias.curid= cursos.curid AND detallematerias.matid= materias.matid AND materias.areid= areas.areid AND detallematerias.usuid= usuarios.usuid ORDER BY detallematerias.detmatid");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
