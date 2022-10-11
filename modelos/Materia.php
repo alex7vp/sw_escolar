@@ -30,7 +30,7 @@ class Materia
         $sentencia = $conn->query("SELECT matid, matnombre, materias.areid, arenombre 
         FROM materias, areas
         WHERE materias.areid= areas.areid
-        ORDER BY materias.areid");
+        ORDER BY areas.arenombre");
         return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 

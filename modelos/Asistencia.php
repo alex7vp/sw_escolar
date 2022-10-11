@@ -52,7 +52,8 @@ class Asistencia
         global $conn;
         $sentencia = "SELECT  resasistencia.*, rmatriculacion.*, usuarios.*, materias.matnombre
         FROM resasistencia, rmatriculacion, usuarios, detallematerias, materias
-        WHERE resasistencia.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid  AND detallematerias.detmatid=resasistencia.detmatid  AND detallematerias.matid=materias.matid AND resasistencia.detmatid=:detmatid";
+        WHERE resasistencia.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid  AND detallematerias.detmatid=resasistencia.detmatid  AND detallematerias.matid=materias.matid AND resasistencia.detmatid=:detmatid 
+        ORDER BY usuarios.usuapellido";
         $registros = $conn->prepare( $sentencia ); 
         $registros ->execute(array(":detmatid" => $detmatid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 

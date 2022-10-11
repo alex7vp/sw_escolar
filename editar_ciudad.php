@@ -48,11 +48,13 @@ $ciudad = Ciudad::obtenerUno($ciuid);
                     <div class="col ">
                         <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1">Ciudad</span>
-                            <input type="text" class="form-control" id="pronombre" name="ciunombre" value="<?php echo $ciudad->ciunombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" id="pronombre" name="ciunombre" value="<?php echo $ciudad->ciunombre ?>" aria-label="Username" width="300px" aria-describedby="basic-addon1" required>
                         </div>
                     </div>
                     <div class="col ">
                         <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button>
+                        <br><br>
+                        <a class="btn btn-outline-danger shadow-sm" href="ciudades.php"><img src="img/cancelar.png">  Cancelar</a>
                     </div>
             </form>
         </div>

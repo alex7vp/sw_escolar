@@ -36,8 +36,8 @@
           </a>
           <ul class="dropdown-menu text-light">  
             <li><a class="dropdown-item" href="areas.php">Areas</a></li>
-            <li><a class="dropdown-item" href="materias.php">Materias</a></li>
-            <li><a class="dropdown-item" href="paralelos.php">Paralelos</a></li>
+            <li><a class="dropdown-item" href="materias.php">Materias</a></li>            
+            <li><a class="dropdown-item" href="cursos.php">Cursos</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>

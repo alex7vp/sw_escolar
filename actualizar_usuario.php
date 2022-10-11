@@ -4,8 +4,8 @@ include "conf.php";
 include "modelos/Usuario.php";
 //carga la plantilla con la header y el footer
 require_once('layouts/layout.php');
-$rolid = $_POST["rolid"];
 $usuid = $_POST["usuid"];
+$rolid = $_POST["rolid"];
 $usuusuario = $_POST["usuusuario"];
 $usupassword = $_POST["usupassword"];
 $usunombre = $_POST["usunombre"];
@@ -14,6 +14,7 @@ $usucedula = $_POST["usucedula"];
 $usudireccion = $_POST["usudireccion"];
 $usutelefono = $_POST["usutelefono"];
 $ciuid = $_POST["ciuid"];
+echo $ciuid;
 $usuarioupdate = new Usuario($rolid, $usuusuario, $usupassword, $usunombre, $usuapellido, $ciuid, $usucedula, $usudireccion, $usutelefono, $usuid);
 $usuarioupdate->actualizar($rolid, $usuusuario, $usupassword, $usunombre, $usuapellido, $ciuid, $usucedula, $usudireccion, $usutelefono, $usuid);
 ?>

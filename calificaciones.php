@@ -40,7 +40,7 @@ $id = $_GET["detmatid"];
                         <?php foreach ($detalles as $detalle) { ?>
                             <tr>
                                 <form action="actualizar_nota.php" id="agrCiudad" class="form-control" method="POST">
-                                    <td> <input style="border: 0;" type="text" max="10" value="<?php echo $detalle->usunombre . " " . $detalle->usuapellido ?>" disabled></td>
+                                    <td> <input style="border: 0;" type="text" max="10" value="<?php echo $detalle->usuapellido . " " . $detalle->usunombre ?>" disabled></td>
                                     <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial1" max="10" value="<?php echo $detalle->notparcial1 ?>"></td>
                                     <td> <input style="border: 0;" size="1" type="text" name="txt_Parcial2" max="10" value="<?php echo $detalle->notparcial2 ?>"></td>
                                     <td> <input style="border: 0;" size="1" type="text" max="10" value="<?php echo $detalle->notporcentaje1 ?>" disabled></td>

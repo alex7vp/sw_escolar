@@ -108,7 +108,7 @@ if (!isset($_SESSION['rol'])) {
                                         <a href="editar_materia.php?matid=<?php echo $materia->matid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
                                     <td>
-                                        <a href="eliminar_materia.php?areid=<?php echo $materia->matid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                        <a href="eliminar_materia.php?matid=<?php echo $materia->matid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                     </td>
                                 </tr>
                             <?php } ?>

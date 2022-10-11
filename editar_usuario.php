@@ -24,7 +24,7 @@ $usuario = Usuario::obtenerUno($usuid);
                         <div class="col">
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="basic-addon1">Rol</span>
-                                <select name="rolid" class="form-select form-select" disabled>
+                                <select name="rolid"  class="form-select form-select" >
                                     <?php
                                     $roles = Rol::obtener();
                                     foreach ($roles as $rol) {
@@ -33,11 +33,7 @@ $usuario = Usuario::obtenerUno($usuid);
 
                                             <option value="<?php echo $rol->rolid ?>" selected><?php echo $rol->rolnombre ?></option>
 
-                                        <?php } else { ?>
-                                            <option value="<?php echo $rol->rolid ?>"><?php echo $rol->rolnombre ?></option>
-                                    <?php
-                                        }
-                                    } ?>
+                                        <?php }} ?>
                                 </select>
                             </div>
                             <div class="input-group mb-2">
@@ -91,7 +87,8 @@ $usuario = Usuario::obtenerUno($usuid);
                             </div>
                         </div>
                         <div class="col ">
-                            <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button>
+                            <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">Actualizar</button><br><br>
+                            <a href="usuarios.php" class="btn btn-outline-danger shadow-sm" ><img src="img/cancelar.png">Cancelar</a>
                         </div>
                     </div>
                 </div>

@@ -33,10 +33,10 @@ if (isset($_SESSION['rol'])) {
                         <h1 class="txt">Inicio de Sesión</h1>
                     </legend>
                     <div class="login__field">                        
-                        <input type="text" id="usuusuario" name="usuusuario" class="login__input" placeholder="Usuario">
+                        <input type="text" id="usuusuario" name="usuusuario" class="login__input" placeholder="Usuario" required>
                     </div>
                     <div class="login__field">
-                        <input type="password" id="txtPassword" name="usupassword" class="login__input" placeholder="Password">
+                        <input type="password" id="txtPassword" name="usupassword" class="login__input" placeholder="Password" required>
                         <button id="show_password" style="background-color: transparent; border-width: 0px" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>                        
                     </div>
                     <button class="button login__submit" type="submit" name="enviar">

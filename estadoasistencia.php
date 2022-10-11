@@ -62,10 +62,10 @@ $estados = EstadoAsistencia::obtener();
                                     <td><?php echo $estado->estasiid ?></td>
                                     <td><?php echo $estado->estasinombre ?></td>
                                     <td>
-                                        <a href="editar_estadoasistencia.php?estasiid=<?php echo $estado->estasiid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
+                                        <a href="editar_estadoasistencia.php?estasiid=<?php echo $estado->estasiid ?>" class="btn btn-success btn-sm shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
                                     <td>
-                                    <a href="eliminar_estadoasistencia.php?estasiid=<?php echo $estado->estasiid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                    <a href="eliminar_estadoasistencia.php?estasiid=<?php echo $estado->estasiid ?>" class="btn btn-danger btn-sm shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                     </td>
                                 </tr>
                             <?php } ?>

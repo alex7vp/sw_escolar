@@ -27,7 +27,8 @@ $provincia = Provincia::obtenerUno($proid);
                         </div>
                     </div>
                     <div class="col ">
-                        <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">  Actualizar</button>
+                        <button class="btn btn-outline-primary shadow-sm" type="submit"><img src="img/actualizar.png">  Actualizar</button><br><br>
+                        <a class="btn btn-outline-danger shadow-sm" href="provincias.php"><img src="img/cancelar.png">  Cancelar</a>
                     </div>
                 </div>                         
             </form>

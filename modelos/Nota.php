@@ -61,7 +61,8 @@ class Nota
         global $conn;
         $sentencia = "SELECT  notas.*, rmatriculacion.*, usuarios.*,materias.matnombre
         FROM notas, rmatriculacion, usuarios,materias,detallematerias
-        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND detallematerias.matid=materias.matid  AND detallematerias.detmatid=notas.detmatid AND notas.detmatid=:detmatid";
+        WHERE notas.rmaid=rmatriculacion.rmaid AND rmatriculacion.usuid=usuarios.usuid AND detallematerias.matid=materias.matid  AND detallematerias.detmatid=notas.detmatid AND notas.detmatid=:detmatid 
+        ORDER BY usuarios.usuapellido";
         $registros = $conn->prepare( $sentencia ); 
         $registros ->execute(array(":detmatid" => $detmatid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 

@@ -30,7 +30,7 @@ $id=$_GET["detmatid"];
                     <tbody>
                         <?php foreach ($detalles as $detalle) { ?>
                             <tr>
-                                <td><?php echo $detalle->usunombre . " " . $detalle->usuapellido ?> </td>
+                                <td><?php echo $detalle->usuapellido . " " . $detalle->usunombre ?> </td>
                                 
                                 <td><?php echo $detalle->resasipresentes ?> </td>
                                 <td><?php echo $detalle->resasijustificadas ?> </td>

@@ -59,9 +59,8 @@ if (!isset($_SESSION['rol'])) {
                                 <div class="col">
                                     <div class="input-group mb-2">
                                         <span class="input-group-text" id="basic-addon1">Provincia</span>
-                                        <select name="proid" class="form-select form-select">
-                                            <option value="1">Seleccione:</option>
-                                            <?php
+                                        <select name="proid" class="form-select form-select" required>
+                                             <?php
                                             $provincias = Provincia::obtener();
                                             foreach ($provincias as $provincia) { ?>
                                                 <option value="<?php echo $provincia->proid ?>"><?php echo $provincia->pronombre ?></option>
@@ -108,7 +107,7 @@ if (!isset($_SESSION['rol'])) {
                                         <a href="editar_ciudad.php?ciuid=<?php echo $ciudad->ciuid ?>" class="btn btn-success shadow-sm"><img src="img/editar.png" alt="" class="btn_img"></a>
                                     </td>
                                     <td>
-                                        <a href="eliminar_ciudad.php?proid=<?php echo $ciudad->ciuid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
+                                        <a href="eliminar_ciudad.php?ciuid=<?php echo $ciudad->ciuid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                     </td>
                                 </tr>
                             <?php } ?>
