@@ -50,6 +50,18 @@ class Usuario
         echo "Ok";
     }
 
+
+    public static function obtenerCoordinador()
+    {
+        global $conn;
+        $sentencia = $conn->query("SELECT usuid, usuusuario, usunombre, usucedula, usuapellido, usuarios.rolid, rolnombre
+        FROM usuarios, roles
+        WHERE usuarios.rolid= roles.rolid AND usuarios.rolid= 2 AND usuarios.rolid= 3 
+        ORDER BY usuarios.rolid");
+        return $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        echo "Ok";
+    }
+
     public static function obtenerUno($usuid)
     {
         global $conn;
@@ -70,6 +82,26 @@ class Usuario
         $registros ->execute(array(":rolid" => $rolid));
         return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
     }
+
+    public static function obtenerCedula($usucedula)
+    {
+        global $conn;
+
+        $sentencia = 'SELECT * FROM usuarios WHERE usucedula=:usucedula ';
+        $registros = $conn->prepare($sentencia);
+        $registros->execute(array(":usucedula" => $usucedula));
+        return $registros = $registros->fetch(PDO::FETCH_OBJ);
+    }
+    public static function obtenerUsuario($usuusuario)
+    {
+        global $conn;
+
+        $sentencia = 'SELECT * FROM usuarios WHERE usuusuario=:usuusuario ';
+        $registros = $conn->prepare($sentencia);
+        $registros->execute(array(":usuusuario" => $usuusuario));
+        return $registros = $registros->fetch(PDO::FETCH_OBJ);
+    }
+    
     public static function porDocentes()
     {        
         global $conn;

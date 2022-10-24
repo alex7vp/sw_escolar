@@ -66,10 +66,21 @@ class rMatriculacion
 
         $sentencia = $conn->query("SELECT rmatriculacion.*, usuarios.*, periodos.*
         FROM rmatriculacion, usuarios, periodos
-        WHERE rmatriculacion.usuid= usuarios.usuid AND rmatriculacion.perid= periodos.perid AND usuid=:usuid");
+        WHERE rmatriculacion.usuid= usuarios.usuid AND rmatriculacion.perid= periodos.perid AND rmatriculacion.usuid=:usuid");
         $registros = $conn->prepare($sentencia);
         $registros->execute(array(":usuid" => $usuid));
         return $registros = $registros->fetch(PDO::FETCH_OBJ);
+    }
+
+    public static function comprobar($usuid, $perid)
+    {        
+        global $conn;
+        $sentencia = "SELECT rmatriculacion.*, usuarios.*, periodos.*
+        FROM rmatriculacion, usuarios, periodos
+        WHERE rmatriculacion.usuid=usuarios.usuid AND periodos.perid=rmatriculacion.perid AND rmatriculacion.usuid= :usuid AND rmatriculacion.perid= :perid";
+        $registros = $conn->prepare( $sentencia ); 
+        $registros ->execute(array(":usuid" => $usuid, ":perid" => $perid));
+        return $resultado = $registros->fetchAll(PDO::FETCH_OBJ); 
     }
 
     public static function porPeriodo($perid)

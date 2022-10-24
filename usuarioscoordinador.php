@@ -141,7 +141,9 @@ if (!isset($_SESSION['rol'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($usuarios as $usuario) { ?>
+                            <?php foreach ($usuarios as $usuario) { 
+                                if ($usuario->rolid == 2 || $usuario->rolid == 3) {
+                                ?>
                                 <tr>
                                     <td><?php echo $usuario->usuid ?></td>
                                     <td><?php echo $usuario->rolnombre ?></td>
@@ -156,7 +158,9 @@ if (!isset($_SESSION['rol'])) {
                                         <a onclick="return confirm('Esta seguro que desea eliminar al usuario del sistema')" href="eliminar_usuario.php?rolid=<?php echo $usuario->usuid ?>" class="btn btn-danger shadow-sm"><img src="img/eliminar.png" alt="" class="btn_img"></a>
                                     </td>
                                 </tr>
-                            <?php } ?>
+                            <?php 
+                            }
+                        } ?>
                         </tbody>
                     </table>
                     <div id="roles" style="display: block;">
@@ -167,10 +171,14 @@ if (!isset($_SESSION['rol'])) {
                                         <select name="select" placeholder="Selecciona una rol" class="form-select form-select">
                                             <?php
                                             $roles = Rol::obtener();
-                                            foreach ($roles as $rol) { ?>
+                                            foreach ($roles as $rol) {
+                                                if ($rol->rolid == 2 || $rol->rolid == 3) {
+                                                ?>
                                                 <option value="<?php echo $rol->rolid ?>"><?php echo $rol->rolnombre ?></option>
 
-                                            <?php } ?>
+                                            <?php } 
+                                            }
+                                            ?>
                                         </select>
                                     </div>
 
